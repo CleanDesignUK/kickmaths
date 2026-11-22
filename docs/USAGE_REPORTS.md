@@ -1,6 +1,6 @@
 # Private KickMaths usage reports
 
-Release 8.0.3. GA4 measurement ID: G-5226JP5Y9R, read from the owner’s screenshot. GTM-NDZS25QC is not also loaded: the integration uses the Google-only measurement ID directly to avoid a duplicate configuration.
+Release 8.0.3. GA4 measurement ID: G-5226JP5Y9R, read from the owner’s screenshot. The integration loads the Google tag through this measurement ID. Live Tag Assistant identifies GTM-NDZS25QC and G-5226JP5Y9R as container IDs for that same tag and lists G-5226JP5Y9R as its destination. Do not install a second copy to resolve a pre-consent detection warning.
 
 ## Where the internal dashboard lives
 
@@ -32,7 +32,24 @@ A game_start is recorded after a new round is actually created. Resume does not 
 5. Use the normal Events report for date ranges; Google says event data can take up to 24 hours to appear there.
 6. Review Admin > Property access management. Give only the intended internal team access, using Viewer for people who only need reports. No access rights were added or broadened by this release.
 
-A numerical property ID, account access and an observed collection result were not supplied. Therefore the standard private Events and Realtime reports are the supported dashboard, not a claim that a custom Exploration or account-level configuration was created or verified.
+A numerical property ID and private report access were not supplied. Therefore the standard private Events and Realtime reports are the supported dashboard, not a claim that a custom Exploration or account-level configuration was created or verified.
+
+## Live Tag Assistant check: 22 November 2026
+
+On https://kickmaths.co.uk/ in a fresh browser, the Google script was absent before any analytics choice. Selecting Allow Google Analytics usage statistics, confirming the adult checkbox and saving the choices inserted exactly one Google SDK script: https://www.googletagmanager.com/gtag/js?id=G-5226JP5Y9R.
+
+The Google Tag Assistant session then connected to the production domain and displayed **1 Google tag found**. It identified both supplied IDs under Container IDs and the measurement ID under Destination ID. Its Hits Sent tab showed Page View, game_open, demo_answer and player_active after opening /play/ and answering the quick demo. This verifies browser-side detection and outgoing hits. It does not verify receipt in the owner's private GA4 reports, unique-player totals, full-match lifecycle events or account settings.
+
+Evidence: [Tag Assistant screenshot](screenshots/analytics/tag-assistant-2026-11-22.jpg).
+
+If the detector says No Google tags found:
+
+1. On the public website, open Cookie settings in the footer.
+2. Select Allow Google Analytics usage statistics and confirm the adult checkbox, then Save choices.
+3. Reconnect Tag Assistant to the production domain. The detector must run in the same browser profile where the choice was saved.
+4. If the Google script is still blocked, check browser privacy settings or a tracking blocker. The app deliberately respects Do Not Track and Global Privacy Control. Do not override these signals or remove opt-in simply to pass a tag scan.
+
+The live Hits Sent tab also showed Scroll, confirming automatic enhanced measurement is active for this stream. The owner-side Enhanced measurement review in step 2 above remains outstanding. Tag Assistant reported that this session had no container access, so no private account settings were changed.
 
 ## Collection and consent
 
@@ -50,7 +67,7 @@ All marketing pages, the game entry and the old pricing redirect use the exact o
 
 The Node tests cover pre-consent blocking, adult confirmation, old/invalid choices, SDK configuration, URL redaction, event parameter allowlists, start/resume/complete/save semantics, deduplication across refresh, player_active, withdrawal, cross-tab withdrawal, privacy signals, non-production hosts, graceful analytics failure and all static social metadata/image bytes. The existing game tests also run.
 
-Browser control is unavailable for this release, so no preview browser was installed or started. Live Google collection and account-side settings remain an explicit owner verification step; do not report observed player numbers or a verified custom dashboard until that check has happened.
+The initial release had only HTTP/source verification. The follow-up production browser check above now verifies consent-gated SDK loading, Tag Assistant detection and outgoing page/demo/player events. Private GA4 report receipt and account-side settings remain an owner verification step; do not report observed player numbers or a verified custom dashboard until that check has happened.
 
 Primary references checked 22 November 2026:
 - https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic
