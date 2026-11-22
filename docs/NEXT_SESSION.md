@@ -13,7 +13,7 @@ Game: https://cleandesignuk.github.io/kickmaths/play/
 - Contact: enquiries@kickmaths.co.uk. Feedback: https://forms.gle/SYBiVhoeEzwWpkvu9.
 - The approved crests, 16px/18px website copy, accessible navigation, no website button arrows and explicitly labelled dyslexia-friendly mode remain. Game audio is removed.
 - Pages activation is complete; do not ask the owner to enable it again.
-- kickmaths.co.uk DNS is not connected. Do not add a CNAME redirect until DNS is ready.
+- Production verified: https://kickmaths.co.uk/ and /play/ both return HTTP 200 and serve version 8.0.3. GitHub Pages URLs now redirect to the custom domain. Do not undo this connected domain setup. The live usage module has the supplied measurement ID, and the live sharing-image bytes match the uploaded graphic. This is HTTP/source verification, not observed GA4 event receipt.
 - The original primary-uk-maths repository is unchanged. Full game history is preserved in CleanDesignUK/kickmaths.
 - Before paid work was paused, £5 lifetime per activated device/browser with Tide was discussed. It was not built. PAYMENT_ACCESS_PLAN.md is archived context, not the current launch requirements.
 

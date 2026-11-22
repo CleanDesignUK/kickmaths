@@ -44,7 +44,7 @@ Google signals and ad personalisation are disabled in the configuration, adverti
 
 ## Social previews
 
-All marketing pages, the game entry and the old pricing redirect use the exact owner-supplied Kickmaths-sm.jpg bytes. Immutable URL: https://cleandesignuk.github.io/kickmaths/assets/kickmaths-share-00f8cc99ab2d.jpg. Dimensions: 1200 × 630. Legacy JPEG social asset URLs also serve those bytes. The GitHub Pages asset URL is used so previews do not depend on unverified custom-domain DNS. Existing social platform caches may retain older cards until refreshed by the platform.
+All marketing pages, the game entry and the old pricing redirect use the exact owner-supplied Kickmaths-sm.jpg bytes. Immutable URL: https://cleandesignuk.github.io/kickmaths/assets/kickmaths-share-00f8cc99ab2d.jpg. Dimensions: 1200 × 630. Legacy JPEG social asset URLs also serve those bytes. The GitHub Pages asset URL now redirects successfully to kickmaths.co.uk. Production HTTP checks returned 200 for the website, game, usage module and sharing image; version 8.0.3 and the supplied measurement ID are present, and the live image matches the uploaded bytes. Existing social platform caches may retain older cards until refreshed by the platform.
 
 ## Verification
 
