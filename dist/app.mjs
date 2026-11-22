@@ -1,43 +1,41 @@
-import {migrateWrittenDraft} from './question-compat.mjs?v=7.1.2';
-import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=7.1.2';
-import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=7.1.2';
-import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=7.1.2';
-import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=7.1.2';
-import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=7.1.2';
-import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=7.1.2';
-import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=7.1.2';
-import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=7.1.2';
-import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=7.1.2';
-import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=7.1.2';
-import {avatarSVG} from './avatar.mjs?v=7.1.2';
-import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=7.1.2';
-import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=7.1.2';
-import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=7.1.2';
-import {focusTables} from './tables.mjs?v=7.1.2';
-import {workingText} from './coaching.mjs?v=7.1.2';
-import {spokenMath,selectBritishVoice} from './speech.mjs?v=7.1.2';
-import {columnWorkspace} from './column-method.mjs?v=7.1.2';
-import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=7.1.2';
-import {setMatchDock} from './match-dock.mjs?v=7.1.2';
-import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=7.1.2';
+import {migrateWrittenDraft} from './question-compat.mjs?v=8.0.0';
+import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=8.0.0';
+import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=8.0.0';
+import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=8.0.0';
+import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=8.0.0';
+import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=8.0.0';
+import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=8.0.0';
+import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=8.0.0';
+import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=8.0.0';
+import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=8.0.0';
+import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=8.0.0';
+import {avatarSVG} from './avatar.mjs?v=8.0.0';
+import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=8.0.0';
+import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=8.0.0';
+import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=8.0.0';
+import {focusTables} from './tables.mjs?v=8.0.0';
+import {columnWorkspace} from './column-method.mjs?v=8.0.0';
+import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=8.0.0';
+import {setMatchDock} from './match-dock.mjs?v=8.0.0';
+import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=8.0.0';
 
-import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=7.1.2';
-import {receiveProgress} from './tab-sync.mjs?v=7.1.2';
-import {groupBrandMarkup} from './branding.mjs?v=7.1.2';
+import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=8.0.0';
+import {receiveProgress} from './tab-sync.mjs?v=8.0.0';
+import {groupBrandMarkup} from './branding.mjs?v=8.0.0';
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const STORAGE='numbergrove.data.v1',DRAFT='numbergrove.round.v1';
+const STORAGE='kickmaths.data.v1',DRAFT='kickmaths.round.v1';
 const app=$('#app'),modalRoot=$('#modal-root');
 const touchMatch=matchMedia('(max-width: 680px), (pointer: coarse)');
 const padFields='#answer,.column-digit,.column-note,.work-note,[data-fraction-part],.bar-input,#world-answer-form input';
 const padSymbols=[['.','Decimal point'],['−','Minus'],[',','Comma'],['r','Remainder'],[':','Ratio separator']];
 let lastPadField;
-let data,storageWarning='',session=null,result=null,view='home',year=3,domain='all',search='',tableView=3,pendingSkill=null,shopSlot='starter',leaguePeriod='week',leagueYear=0,gym={table:null,mode:'auto',length:10},voices=[],lastSpokenKey='',tickId=null,lastTick=0,lastSave=0,returnFocus=null,pendingImport=null,pendingMatch=null,audio;
+let data,storageWarning='',session=null,result=null,view='home',year=3,domain='all',search='',tableView=3,pendingSkill=null,shopSlot='starter',leaguePeriod='week',leagueYear=0,gym={table:null,mode:'auto',length:10},tickId=null,lastTick=0,lastSave=0,returnFocus=null,pendingImport=null,pendingMatch=null;
 const draftRounds=new Map();
 const firstShot={index:0,goal:false};
 try{const raw=localStorage.getItem(STORAGE);data=raw?validateImport(JSON.parse(raw)):initialData();}catch{data=initialData();storageWarning='Progress could not be loaded. Restore a backup in Coach.';}
 if(data.profiles.length===3&&data.profiles.every(p=>['Ace','Carter','Cruz'].includes(p.name)&&!p.sessions.length&&!Object.keys(p.facts).length)&&Math.max(...data.profiles.map(p=>p.createdAt))-Math.min(...data.profiles.map(p=>p.createdAt))<1000){data.profiles=[];data.activeId=null;}
-try{const reading=localStorage.getItem('matchday.reading');if(reading!==null)data.settings.dyslexia=reading==='true';}catch{}
+try{const reading=localStorage.getItem('kickmaths.reading');if(reading!==null)data.settings.dyslexia=reading==='true';}catch{}
 let warmupProgressAdjusted=false;
 for(const p of data.profiles){initCareer(p);if(p.year===0)p.year=1;initLearning(p);initRewards(p);const receipt=JSON.stringify(p.warmupXP);migrateFirstWarmupXP(p);if(receipt!==JSON.stringify(p.warmupXP))warmupProgressAdjusted=true;initLeague(p);}
 if(warmupProgressAdjusted)save();
@@ -69,7 +67,7 @@ const shirtNumber=p=>p?.look?.number||9;
 const clubPoints=p=>p.pointsTotal??p.sessions.reduce((n,s)=>n+s.points,0);
 const level=p=>careerLevel(p);
 const totalGoals=p=>p.goalsTotal??p.sessions.reduce((n,s)=>n+s.correct,0);
-function save(){try{localStorage.setItem(STORAGE,JSON.stringify(data));localStorage.setItem('matchday.reading',String(!!data.settings.dyslexia));return true;}catch{storageWarning='This browser cannot save progress. Download a backup in Coach.';return false;}}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(data));localStorage.setItem('kickmaths.reading',String(!!data.settings.dyslexia));return true;}catch{storageWarning='This browser cannot save progress. Download a backup in Coach.';return false;}}
 function saveRound(){
  if(session)draftRounds.set(session.profileId,session);
  try{
@@ -80,7 +78,7 @@ function saveRound(){
 function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3300);}
 function profileDot(p){return `<span class="profile-dot">${p?.look?.number||9}</span>`;}
 function brand(){
- return `<a class="brand" href="#home" data-action="home" aria-label="Matchday Maths home"><span class="brand-mark">${icon('ball',26)}</span><span class="brand-type">Matchday <em>Maths</em></span></a>`;
+ return `<a class="brand" href="#home" data-action="home" aria-label="KickMaths home"><span class="brand-mark">${icon('ball',26)}</span><span class="brand-type">Kick<em>Maths</em></span></a>`;
 }
 const gameMenu = [
  ["home","Dashboard","grid"],
@@ -113,7 +111,7 @@ function footer(){
 }
 function parkMatch(){
  if(!session)return;
- clearTimeout(goalTimer);clearInterval(tickId);window.speechSynthesis?.cancel();
+ clearTimeout(goalTimer);clearInterval(tickId);
  session.paused=true;session.pausedEver=true;
  draftRounds.set(session.profileId,session);session=null;saveRound();
 }
@@ -165,7 +163,7 @@ function bestFor(key,p=player()){return p.records?.[key]||null;}
 function recordLabel(s){return s.manual?shortTitle(skillById(s.manual)):['football-v2','football-v3','football-v4',MATCH_SCHEMA].includes(s.schema)?`Coach training · League ${s.league||1}`:s.skillIds.length===1?skillById(s.skillIds[0]).title:'Mixed practice';}
 function recordsMarkup(p){const records=Object.values(p.records||{}).sort((a,b)=>b.endedAt-a.endedAt);return records.length?`<div class="records">${records.slice(0,10).map(s=>`<div class="record">${icon('trophy',22)}<div><b>${esc(recordLabel(s))}</b><small>${s.correct}/${s.attempts} goals · ${Math.round(s.elapsed)}s</small></div><strong>${s.points}</strong></div>`).join('')}</div>`:'<div class="empty">'+icon('trophy',33)+'<h3>Your first personal best is waiting.</h3><p>Your warm-up and practice are saved in Match history above.</p><button class="btn soft" data-action="play" style="margin-top:17px">Kick off '+icon('arrow',15)+'</button></div>';}
 function statsPage(){const p=player();return progressView(p,recordsMarkup(p),medalsMarkup(p)+historyMarkup(p));}
-function coachPage(){return coachView(data,voices);}
+function coachPage(){return coachView(data);}
 
 function startMatch(manual=null,options={}) {
  const p=player();
@@ -348,7 +346,7 @@ function answerLabel(q){
 }
 function drawingMarkup(v,done,points=session.drawing||[]){const path=points.map(p=>`${24+p[0]*45},${20+p[1]*43}`).join(' ');return `<div class="drawing" id="drawing-board"><svg viewBox="0 0 290 260" aria-hidden="true">${Array.from({length:6},(_,i)=>`<path d="M${24+i*45} 20v215M24 ${20+i*43}h225" stroke="#dfe7d6" stroke-width="1"/>`).join('')}<polyline points="${path}${points.length===v.sides&&points.length?' '+(24+points[0][0]*45)+','+(20+points[0][1]*43):''}" fill="${points.length===v.sides?'#7193d026':'none'}" stroke="#4e78bd" stroke-width="3"/></svg>${Array.from({length:36},(_,i)=>{const x=i%6,y=Math.floor(i/6),selected=points.some(p=>p[0]===x&&p[1]===y);return `<button type="button" class="dot-btn ${selected?'selected':''}" style="left:${(24+x*45)/290*100}%;top:${(20+y*43)/260*100}%" data-action="draw-point" data-x="${x}" data-y="${y}" aria-label="Point ${x}, ${y}" aria-pressed="${selected}" ${done?'disabled':''}></button>`;}).join('')}</div>${!done?'<div class="drawing-actions"><button type="button" class="text-btn" data-action="draw-undo">Undo</button><button type="button" class="text-btn" data-action="draw-clear">Reset</button></div>':''}`;}
 function basicHelpVisual(q){if(q.op==='×')return `<div class="math-array" style="grid-template-columns:repeat(${q.b},12px)">${Array.from({length:q.a*q.b},()=>'<i></i>').join('')}</div>`;if(['+','−','bond','double'].includes(q.op)&&q.a<=20){const total=Math.min(20,q.op==='+'||q.op==='double'?q.answer:q.op==='bond'?q.total:q.a),split=q.op==='+'||q.op==='bond'||q.op==='double'?q.a:q.answer;return `<div class="ten-frames">${Array.from({length:Math.max(1,Math.ceil(total/10))},(_,r)=>`<div class="ten-frame">${Array.from({length:10},(_,j)=>`<i class="${r*10+j<total?'filled':''} ${r*10+j>=split&&r*10+j<total?'second':''}"></i>`).join('')}</div>`).join('')}</div>`;}return '';}
-function helpMarkup(q,small=false){const hints=q.hint||explain(q).steps,model=workedMarkup(q);return `<div class="help-box clean-solution"><h3>${icon('whistle',16)} Coach’s working</h3>${model||`<ol class="solution-steps">${hints.map((t,i)=>`<li><span>${i+1}</span><div>${mathText(t)}</div></li>`).join('')}</ol>`}${model?`<details class="more-help"><summary>Explain the steps</summary><ol class="solution-steps">${hints.map((t,i)=>`<li><span>${i+1}</span><div>${mathText(t)}</div></li>`).join('')}</ol></details>`:''}<button class="text-btn" data-action="hear-help">${icon('sound',15)} Hear the working</button></div>`;}
+function helpMarkup(q,small=false){const hints=q.hint||explain(q).steps,model=workedMarkup(q);return `<div class="help-box clean-solution"><h3>${icon('whistle',16)} Coach’s working</h3>${model||`<ol class="solution-steps">${hints.map((t,i)=>`<li><span>${i+1}</span><div>${mathText(t)}</div></li>`).join('')}</ol>`}${model?`<details class="more-help"><summary>Explain the steps</summary><ol class="solution-steps">${hints.map((t,i)=>`<li><span>${i+1}</span><div>${mathText(t)}</div></li>`).join('')}</ol></details>`:''}</div>`;}
 function renderQuestion(){
  if(!session)return;const q=session.q,done=session.phase==='feedback',extra=skillById(q.skillId).extra,column=q.key.startsWith('column'),written=writtenTask(q),options=written?null:q.options;
  const skill=skillById(q.skillId),reason=session.selection.reason,isCheck=reason==='support';
@@ -395,10 +393,10 @@ function renderQuestion(){
  const coachLabel=isCheck?'Skill check':reason==='review'?'Recall':reason==='repair'?'Second chance':session.selection.label;
  const checkTarget=skillById(session.selection.coachFor);
  const coachLine=checkTarget?`Helps with ${shortTitle(checkTarget).toLowerCase()}`:reason==='repair'?'New question, same skill':`Coach picked ${skill.title.toLowerCase()}`;
- host.innerHTML=`<div class="q-toolbar"><span class="q-label ${isCheck?'skill-check':reason==='repair'?'replay':''}">${icon('whistle',13)}${esc(coachLabel)}</span><div class="q-toolbar-actions">${coachButton}<button class="voice-button" data-action="hear" aria-label="Read the question aloud">${icon('sound',17)}</button></div></div><form id="answer-form" novalidate>${reason==='ease'?'<p class="adapt-note">A smaller step first. Build confidence, then try the original skill again.</p>':''}${content}${input}<div id="answer-error" class="field-error" role="alert"></div>${tail}</form>${!session.manual?`<p class="coach-selection" title="${esc(session.selection.detail||'')}">${icon('whistle',14)} ${esc(coachLine)}</p>`:''}`;
+ host.innerHTML=`<div class="q-toolbar"><span class="q-label ${isCheck?'skill-check':reason==='repair'?'replay':''}">${icon('whistle',13)}${esc(coachLabel)}</span><div class="q-toolbar-actions">${coachButton}</div></div><form id="answer-form" novalidate>${reason==='ease'?'<p class="adapt-note">A smaller step first. Build confidence, then try the original skill again.</p>':''}${content}${input}<div id="answer-error" class="field-error" role="alert"></div>${tail}</form>${!session.manual?`<p class="coach-selection" title="${esc(session.selection.detail||'')}">${icon('whistle',14)} ${esc(coachLine)}</p>`:''}`;
  const typed=!options&&!['drawing','angle','plot','clock'].includes(q.format);
  updateKeypad({typed,done,choices:!!options,symbols:questionPadSymbols(q),caption:dockCaption,resultLabel:dockResult,nextLabel:dockNext,working:done&&!last.correct,announce:touchMatch.matches?dockAnnouncement:''});
- applyAccessPreferences();if(!done&&data.settings.autoRead&&lastSpokenKey!==q.key){lastSpokenKey=q.key;speak(`${questionPrompt(q)}. ${q.expression!==undefined?q.expression:coreExpression(q)}`);}
+ applyAccessPreferences();
  if(!done&&!touchMatch.matches)requestAnimationFrame(()=>{
   const first=$('[data-start-digit]')||$$('.column-digit').at(-1);
   if(first)first.focus({preventScroll:true});
@@ -467,7 +465,7 @@ function submit(value=null,askedCoach=false) {
  }
  session.phase='feedback';save();saveRound();renderQuestion();updateLive();paintPitch(!unknown);
  if(unknown)showWorking();
- else sound(correct);
+
 }
 
 function showWorking(){
@@ -547,7 +545,7 @@ function resumeSaved(){
 }
 function finishMatch(complete,showResult=true) {
  if(!session)return;
- clearTimeout(goalTimer);clearInterval(tickId);window.speechSynthesis?.cancel();
+ clearTimeout(goalTimer);clearInterval(tickId);
  const p=player(),previousLevel=careerLevel(p),priorXP=careerXP(p),old=bestFor(session.recordKey);
  const before=new Set(medals(p).filter(x=>x[3]).map(x=>x[0]));
  const saved={...session,complete:complete&&session.attempts===session.target,endedAt:Date.now(),elapsed:Math.round(session.elapsed*10)/10};
@@ -580,9 +578,7 @@ function finishMatch(complete,showResult=true) {
 function renderResult(){const r=result,p=player(),mission=missionProgress(r.mission,r.rows,r.bestStreak),accuracy=r.attempts?Math.round(r.correct/r.attempts*100):0,stars=r.complete&&r.attempts>=3?(accuracy>=95?3:accuracy>=80?2:accuracy>=60?1:0):0,errors=[...new Map(r.rows.filter(x=>!x.correct||x.assisted).map(x=>[x.q.key,x])).values()];
  const next=(r.curriculumYear||p.year)===p.year&&!r.promotionResult?.promoted?roundRecommendation(p,r):null;
  app.innerHTML=`<div class="game-shell">${header(true)}<main id="main" class="results"><div class="eyebrow">${r.progressCheck?'Progress check':r.coachDrill?'Coach drill':r.mode==='check'?(r.complete?'Warm-up complete':'Warm-up saved'):'Match report'}</div><h1>${r.promotionResult?.promoted?r.promotionResult.graduated?'Academy graduate!':`Promoted to Year ${r.promotionResult.to}!`:r.newRecord?'New record!':r.complete?'Full time.':'Match saved.'}</h1><p>${r.progressCheck?`${r.rows.filter(row=>row.correct&&!row.assisted).length} on your own · ${r.rows.filter(row=>!row.correct||row.assisted).length} to practise`:r.mode==='check'?(r.complete?'Coach now has a starting point.':'Your warm-up is saved. Keep going next time.'):r.attempts&&r.correct/r.attempts>=.8?'Great play, '+esc(p.name)+'.':'Every shot is training.'}</p>${levelMoment(p,r)}${fullTimeShowcase(p,r.complete)}${r.complete&&mission?.complete?`<div class="mission-won">${icon('star',17)} ${mission.name} complete</div>`:''}${r.creditsEarned?`<div class="credits-earned">● +${r.creditsEarned} credits${r.starterCredits?' · first-game bonus included':' earned'}</div>`:''}${r.newClubs?.length?`<button class="club-offer-banner" data-action="result-clubs">${icon('book',18)}New club offer: ${esc(r.newClubs.map(c=>c.name).join(' / '))}${icon('arrow',15)}</button>`:''}${r.newRecord?`<div class="record-banner">${icon('trophy',17)} ${r.points} pts · ${r.previousBest?(r.points===r.previousBest?`${(r.previousTime-r.elapsed).toFixed(1)}s FASTER`:`+${r.points-r.previousBest} ON YOUR BEST`):'FIRST PERSONAL BEST'}</div>`:''}<div class="stars" aria-label="${stars} out of 3 accuracy stars">${[1,2,3].map(n=>`<span class="${n<=stars?'':'off'}">${icon('star',31).replace('fill="none"',n<=stars?'fill="currentColor"':'fill="none"')}</span>`).join('')}</div><div class="result-metrics"><div><strong>${r.correct}/${r.attempts}</strong><small>${isGoalkeeper()?'saves':'goals'}</small></div><div><strong>${r.careerXP||0}</strong><small>career XP</small></div><div><strong>${accuracy}%</strong><small>accuracy</small></div><div><strong>${r.bestStreak}</strong><small>best streak</small></div></div><div class="level-line" style="max-width:380px;margin:22px auto 0"><strong>LEVEL ${level(p)}</strong><span>${Math.floor(levelProgress(p).current)}/${levelProgress(p).needed} XP</span></div><div class="xp" style="max-width:380px;margin:9px auto"><i style="width:${levelProgress(p).percent}%"></i></div><div class="result-buttons"><button class="btn lime big" data-action="next-match">${r.progressCheck?'Coach match':r.mode==='check'?(p.placementComplete?'Start training':'Continue warm-up'):'Next match'} ${icon('arrow',18)}</button><button class="btn white big" data-action="result-locker">${icon('shop',18)} Shop</button><button class="btn white big" data-action="nav" data-view="stats">${icon('trophy',18)} Trophy room</button><button class="btn white big" data-action="result-home">Dashboard</button></div>${goalsMarkup(p,true)}${r.coachDrill?'<p class="muted reward-explanation">Coach drills earn XP for new or due independent answers. Asking for help, repeating a recently revealed answer or replaying a fact before its review is due earns no XP. 10 XP = 1 credit.</p>':r.manual?'<p class="muted">Free practice saves goals and recall. Your first completed game gives 10 starter credits. Your first warm-up also earns independent-answer XP. Earn more in Coach matches and 3-shot Coach drills.</p>':!r.complete&&r.careerPending?'<p class="muted">Progress saved. Finish every shot in a Coach match to bank XP.</p>':''}${r.medals?.length?`<section class="panel"><h3>New medals</h3><div class="badge-grid">${r.medals.map(m=>`<div class="badge"><span class="badge-icon">${icon(m.symbol,24)}</span><b>${esc(m.name)}</b></div>`).join('')}</div></section>`:''}${errors.length?`<section class="panel"><h3>Back on the training ground</h3><div class="result-review">${errors.slice(0,5).map(x=>`<button data-action="review-example" data-key="${esc(x.q.key)}"><span>${mathText(equationLabel(x.q,false))}</span><span>${icon('whistle',18)}</span></button>`).join('')}</div></section>`:''}${coachNextCard(p,next)||`<section class="panel"><h3>Keep your match fitness</h3><p>Facts you know return on later days.</p><button class="text-btn" data-action="how" style="margin-top:10px">How Coach picks ${icon('arrow',13)}</button></section>`}</main></div>`;scrollTo({top:0});}
-function sound(good){if(!data.settings.sound)return;try{audio||=new(window.AudioContext||window.webkitAudioContext)();const o=audio.createOscillator(),g=audio.createGain();o.connect(g);g.connect(audio.destination);o.frequency.setValueAtTime(good?600:300,audio.currentTime);o.frequency.linearRampToValueAtTime(good?820:340,audio.currentTime+.12);g.gain.setValueAtTime(.03,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.22);o.start();o.stop(audio.currentTime+.24);}catch{}}
 function confetti(){const e=document.createElement('div');e.className='confetti';e.setAttribute('aria-hidden','true');e.innerHTML=Array.from({length:32},(_,i)=>`<i style="left:${Math.random()*100}%;background:${['#d4f36a','#739e5e','#d6b76b','#7a9bdc'][i%4]};animation-delay:${Math.random()*.4}s;--drift:${Math.random()*180-90}px"></i>`).join('');document.body.append(e);setTimeout(()=>e.remove(),2700);}
-function speak(text){if(!('speechSynthesis'in window)){toast('Read-aloud is unavailable on this device.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(spokenMath(text)),voice=selectBritishVoice(voices,data.settings.voiceURI);if(voice)u.voice=voice;else if(!speak.warned){toast('No British voice is installed. This device will choose the voice.');speak.warned=true;}u.lang='en-GB';u.rate=data.settings.speechRate||.9;speechSynthesis.speak(u);}
 
 function openDialog(content,{wide=false,focus=null}={}){returnFocus=document.activeElement;modalRoot.innerHTML=`<div class="dialog-backdrop"><section class="dialog ${wide?'wide':''}" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1"><button class="icon-btn close-dialog" data-action="close-dialog" aria-label="Close">${icon('close',17)}</button>${content}</section></div>`;app.inert=true;requestAnimationFrame(()=>$(focus||'.dialog button,.dialog input,.dialog select,.dialog',modalRoot)?.focus());}
 function closeDialog(){if(!modalRoot.firstChild)return;shownExample=null;modalRoot.innerHTML='';app.inert=false;if(returnFocus?.isConnected)returnFocus.focus();}
@@ -773,11 +769,7 @@ function handleClick(event){const b=event.target.closest('[data-action]');if(!b|
  case 'result-locker':result=null;navigate('locker');break;
  case 'result-clubs':{result=null;navigate('locker');viewClubOffers(player());save();openDialog(clubJourneyView(player()));break;}
  case 'news-locker':closeDialog();navigate('locker');break;
- case 'voice-test':speak('One hundred and twenty-six. Three quarters. Eight plus five equals thirteen.');break;
  case 'plot-point':if(session&&session.phase==='question'){const point=[Number(b.dataset.x),Number(b.dataset.y)],index=session.drawing.findIndex(p=>p[0]===point[0]&&p[1]===point[1]);if(index>=0)session.drawing.splice(index,1);else if(session.drawing.length<session.q.answer.length)session.drawing.push(point);saveRound();renderQuestion();}break;
- case 'sound':data.settings.sound=!data.settings.sound;save();sound(true);if(!session&&!result)render();else toast(`Sound ${data.settings.sound?'on':'off'}`);break;
- case 'hear':if(session)speak(`${questionPrompt(session.q)}. ${session.q.expression!==undefined?session.q.expression:coreExpression(session.q)}`);break;
- case 'hear-help':{const q=session?.q||shownExample;if(q)speak(workingText(q)||(q.hint||explain(q).steps).join('. '));else if(modalRoot.dataset.question)speak(modalRoot.dataset.question);break;}
  case 'ask-coach':submit(null,true);break;
  case 'answer-choice':submit(b.dataset.value);break;
  case 'show-working':showWorking();break;
@@ -802,10 +794,10 @@ function handleClick(event){const b=event.target.closest('[data-action]');if(!b|
  case 'report':showReport(b.dataset.id);break;
  case 'print-report':if($('.parent-report',modalRoot))window.print();break;
  case 'close-dialog':closeDialog();break;
- case 'backup':download(JSON.stringify({...data,exportedAt:new Date().toISOString()},null,2),`Matchday_Maths_Backup_${localDay()}.json`,'application/json');toast('Backup downloaded.');break;
+ case 'backup':download(JSON.stringify({...data,exportedAt:new Date().toISOString()},null,2),`KickMaths_Backup_${localDay()}.json`,'application/json');toast('Backup downloaded.');break;
  case 'import':$('#import-file').click();break;
  case 'confirm-import':data=validateImport(pendingImport);for(const p of data.profiles){initLearning(p);initCareer(p);initRewards(p);migrateFirstWarmupXP(p);initLeague(p);}pendingImport=null;session=null;draftRounds.clear();saveRound();save();closeDialog();view='coach';render();toast('Squad restored.');break;
- case 'export-csv':{const p=b.dataset.id?data.profiles.find(x=>x.id===b.dataset.id):player();download(csv(p),`Matchday_${p.name.replace(/[^a-z0-9]/gi,'_')}_Scores.csv`,'text/csv;charset=utf-8');break;}
+ case 'export-csv':{const p=b.dataset.id?data.profiles.find(x=>x.id===b.dataset.id):player();download(csv(p),`KickMaths_${p.name.replace(/[^a-z0-9]/gi,'_')}_Scores.csv`,'text/csv;charset=utf-8');break;}
  }}
  document.addEventListener('click',handleClick);
  document.addEventListener('submit',event=>{if(event.target.id==='world-answer-form'){event.preventDefault();submitWorld(new FormData(event.target).get('answer'));return;}if(event.target.id==='answer-form'){event.preventDefault();submit();}if(event.target.id==='profile-form'){event.preventDefault();const id=event.target.dataset.id,name=$('#player-name').value.trim(),y=Number($('#player-year').value),number=Number($('#player-number').value),position=$('#player-position').value,skin=$('#player-skin').value;if(!name)return $('#profile-error').textContent='Add a nickname.';if(!Number.isInteger(number)||number<1||number>99)return $('#profile-error').textContent='Choose a kit number from 1 to 99.';if(data.profiles.some(p=>p.id!==id&&p.name.toLowerCase()===name.toLowerCase()))return $('#profile-error').textContent='That nickname is already in the squad.';const trainingSeconds=Number($('#training-clock').value);if(id){const p=data.profiles.find(p=>p.id===id);if(p.year!==y){const saved=draftRounds.get(p.id);if(saved){session=saved;finishMatch(false,false);}initRewards(p);p.placementComplete=false;p.placementProgress=0;}p.name=name;p.year=y;initRewards(p);p.trainingSeconds=trainingSeconds;initCareer(p);Object.assign(p.look,{number,position,skin});save();closeDialog();render();}else{const p=newProfile(name,y,'sprout');initLearning(p);initCareer(p);initRewards(p);Object.assign(p.look,{number,position,skin});p.trainingSeconds=trainingSeconds;data.profiles.push(p);data.activeId=p.id;year=y;save();closeDialog();startMatch(pendingSkill);pendingSkill=null;}}});
@@ -819,7 +811,7 @@ function handleClick(event){const b=event.target.closest('[data-action]');if(!b|
   }
   if(['player-number','player-position','player-skin'].includes(el.id)){profilePreview();}if(el.id==='answer'&&session){el.value=el.value.replace(/[^0-9.,/:()r\s−-]/g,'').slice(0,24);session.answer=el.value;saveRound();}if(el.classList?.contains('column-digit')&&session){el.value=el.value.replace(/\D/g,'').slice(-1);session.digits=$$('.column-digit').map(x=>x.value);if(el.value){const next=$(`#digit-${Number(el.dataset.digit)+($('.division-board')?1:-1)}`);if(next){session.lastDigit=Number(next.dataset.digit);next.focus({preventScroll:true});next.select();}else if($('.division-board'))$('#division-remainder')?.focus({preventScroll:true});}saveRound();}if(el.classList?.contains('column-note')&&session){const i=Number(el.dataset.note);el.value=el.value.replace(/\D/g,'').slice(0,session.q.op==='+'?1:2);session.notes[i]=el.value;document.querySelector(`[data-original="${i}"]`)?.classList.toggle('crossed',session.q.op==='−'&&el.value!=='');saveRound();}if(session&&el.matches('.work-note')){el.value=el.value.replace(/\D/g,'').slice(0,el.maxLength);session.work||={};if(el.dataset.work)session.work[el.dataset.work]=el.value;else session.remainder=el.value;saveRound();}if(session&&el.id==='scratch-work'){session.scratch=el.value.slice(0,1000);saveRound();}if(el.classList?.contains('bar-input')&&session){session.bars[Number(el.dataset.bar)]=el.value;const bar=$(`#bar-view-${el.dataset.bar}`);if(bar)bar.style.height=`${Math.min(20,Math.max(0,Number(el.value)))*5}px`;saveRound();}if(el.id==='angle-control'&&session){session.angle=Number(el.value);const current=$('.math-visual',$('#question-host'));if(current){const holder=document.createElement('div');holder.innerHTML=diagram(session.q.visual,{angle:session.angle});current.replaceWith(holder.firstElementChild);}saveRound();}if(el.id==='skill-search'){search=el.value;$('#syllabus-bank').innerHTML=syllabusBank(data.activeId?player():null,year,domain,search);}});
  document.addEventListener('focusin',event=>{if(event.target.matches?.(padFields))lastPadField=event.target;if(event.target.classList?.contains('bar-input')&&session)session.lastBar=Number(event.target.dataset.bar);if(event.target.classList?.contains('column-digit')&&session){session.lastDigit=Number(event.target.dataset.digit);event.target.select();}});
- document.addEventListener('change',event=>{const el=event.target;if(el.dataset.practical){const p=data.profiles.find(p=>p.id===el.dataset.profile);if(p){p.practical[el.dataset.practical]=el.checked;save();}return;}if(['kit-hair','kit-pattern','kit-hair-colour','kit-skin','kit-trim','kit-theme'].includes(el.id)){const p=player();if(!p)return;const value=el.value,slot=({'kit-hair':'hair','kit-pattern':'pattern','kit-hair-colour':'hairColour','kit-skin':'skin','kit-trim':'trim','kit-theme':'theme'})[el.id];if(slot==='skin'&&Object.hasOwn(SKIN_TONES,value))p.look.skin=value;else if(!setAppearanceChoice(p,slot,value)){el.value=p.look[slot];toast('Buy this item in the Shop first.');return;}save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(p,{size:155});}if(el.id==='kit-number'){const n=Number(el.value);if(Number.isInteger(n)&&n>=1&&n<=99){player().look.number=n;save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(player(),{size:155});}else{el.value=player().look.number;toast('Choose a number from 1 to 99.');}}if(el.id==='kit-position'&&POSITIONS.includes(el.value)){player().look.position=el.value;save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(player(),{size:155});}if(el.id==='unit-year'){year=Number(el.value);domain='all';search='';render();$('#unit-year')?.focus({preventScroll:true});return;}if(el.id==='league-year'){leagueYear=Number(el.value);render();}if(el.id==='dyslexia-setting'){data.settings.dyslexia=el.checked;save();applyAccessPreferences();}if(el.id==='auto-read'){data.settings.autoRead=el.checked;save();}if(el.id==='british-voice'){data.settings.voiceURI=el.value;save();}if(el.id==='speech-rate'){data.settings.speechRate=Number(el.value);save();}if(['player-position','player-skin'].includes(el.id))profilePreview();if(session&&['clock-hour','clock-minute'].includes(el.id)){session.clockHour=Number($('#clock-hour').value);session.clockMinute=Number($('#clock-minute').value);const current=$('.math-visual',$('#question-host'));if(current){const holder=document.createElement('div');holder.innerHTML=diagram(session.q.visual,{hour:session.clockHour,minute:session.clockMinute});current.replaceWith(holder.firstElementChild);}saveRound();}if(event.target.id==='reduce-motion'){data.settings.reduceMotion=event.target.checked;document.body.classList.toggle('reduce-motion',event.target.checked);save();}if(event.target.id==='import-file'){const file=event.target.files?.[0];if(file)restoreFile(file);event.target.value='';}});
+ document.addEventListener('change',event=>{const el=event.target;if(el.dataset.practical){const p=data.profiles.find(p=>p.id===el.dataset.profile);if(p){p.practical[el.dataset.practical]=el.checked;save();}return;}if(['kit-hair','kit-pattern','kit-hair-colour','kit-skin','kit-trim','kit-theme'].includes(el.id)){const p=player();if(!p)return;const value=el.value,slot=({'kit-hair':'hair','kit-pattern':'pattern','kit-hair-colour':'hairColour','kit-skin':'skin','kit-trim':'trim','kit-theme':'theme'})[el.id];if(slot==='skin'&&Object.hasOwn(SKIN_TONES,value))p.look.skin=value;else if(!setAppearanceChoice(p,slot,value)){el.value=p.look[slot];toast('Buy this item in the Shop first.');return;}save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(p,{size:155});}if(el.id==='kit-number'){const n=Number(el.value);if(Number.isInteger(n)&&n>=1&&n<=99){player().look.number=n;save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(player(),{size:155});}else{el.value=player().look.number;toast('Choose a number from 1 to 99.');}}if(el.id==='kit-position'&&POSITIONS.includes(el.value)){player().look.position=el.value;save();render();if($('#appearance-preview'))$('#appearance-preview').innerHTML=avatarSVG(player(),{size:155});}if(el.id==='unit-year'){year=Number(el.value);domain='all';search='';render();$('#unit-year')?.focus({preventScroll:true});return;}if(el.id==='league-year'){leagueYear=Number(el.value);render();}if(el.id==='dyslexia-setting'){data.settings.dyslexia=el.checked;save();applyAccessPreferences();}if(['player-position','player-skin'].includes(el.id))profilePreview();if(session&&['clock-hour','clock-minute'].includes(el.id)){session.clockHour=Number($('#clock-hour').value);session.clockMinute=Number($('#clock-minute').value);const current=$('.math-visual',$('#question-host'));if(current){const holder=document.createElement('div');holder.innerHTML=diagram(session.q.visual,{hour:session.clockHour,minute:session.clockMinute});current.replaceWith(holder.firstElementChild);}saveRound();}if(event.target.id==='reduce-motion'){data.settings.reduceMotion=event.target.checked;document.body.classList.toggle('reduce-motion',event.target.checked);save();}if(event.target.id==='import-file'){const file=event.target.files?.[0];if(file)restoreFile(file);event.target.value='';}});
  document.addEventListener('keydown',event=>{const container=modalRoot.firstChild?modalRoot:session?.paused?$('.paused'):null;if(container){if(event.key==='Escape'&&container===modalRoot){event.preventDefault();closeDialog();return;}if(event.key==='Tab'){const controls=$$('button:not([disabled]),input:not([hidden]):not([disabled]),select,a[href],[tabindex="0"]',container).filter(e=>e.offsetParent!==null);const first=controls[0],last=controls.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}return;}if(handleTouchAnswerKey(event))return;if(session&&!session.paused){if(event.key==='Escape'){event.preventDefault();pause();return;}if(event.key==='Enter'&&session.phase==='feedback'){event.preventDefault();nextQuestion();}if(event.target.classList?.contains('column-digit')){const i=Number(event.target.dataset.digit);if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();$(`#digit-${i+(event.key==='ArrowLeft'?-1:1)}`)?.focus();}if(event.key==='Backspace'&&event.target.value===''){event.preventDefault();$(`#digit-${i+1}`)?.focus();}}}});
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&session&&!session.paused)pause();});
  touchMatch.addEventListener('change',()=>{
@@ -840,7 +832,7 @@ function handleClick(event){const b=event.target.closest('[data-action]');if(!b|
  });
 
 function readingButton(){
- return `<button class="btn white reading-preference ${data.settings.dyslexia?'on':''}" data-action="reading" aria-pressed="${!!data.settings.dyslexia}">Reading mode</button>`;
+ return `<button class="btn white reading-preference ${data.settings.dyslexia?'on':''}" data-action="reading" aria-pressed="${!!data.settings.dyslexia}">Dyslexia-friendly mode</button>`;
 }
 function applyAccessPreferences(){document.body.dataset.playerTheme=player()?.look?.theme||'pitch';document.body.classList.toggle('reduce-motion',!!data.settings.reduceMotion);document.body.classList.toggle('reading-mode',!!data.settings.dyslexia);$$('[data-action="reading"]').forEach(b=>{b.setAttribute('aria-pressed',String(!!data.settings.dyslexia));b.classList.toggle('on',!!data.settings.dyslexia);});}
 function profilePreview(){const id=$('#profile-form')?.dataset.id,old=data.profiles.find(p=>p.id===id),p={...(old||{}),look:{...(old?.look||{})}};initCareer(p);p.look.number=Math.max(1,Math.min(99,Number($('#player-number')?.value)||9));p.look.position=$('#player-position')?.value||'Striker';p.look.skin=$('#player-skin')?.value||'warm';if($('#profile-preview'))$('#profile-preview').innerHTML=avatarSVG(p,{size:145});}
@@ -855,7 +847,7 @@ function worldPage(){
  if(!p)return '<div class="panel"><h1>World League</h1><p>Choose your player to see your year group.</p><button class="btn lime" data-action="players">Choose player</button></div>';
  if(world.profileId!==p.id||world.year!==p.year){
   let identity=null;
-  try{identity=JSON.parse(localStorage.getItem(`matchday.world.${p.id}`)||'null');}catch{}
+  try{identity=JSON.parse(localStorage.getItem(`kickmaths.world.${p.id}`)||'null');}catch{}
   world={profileId:p.id,year:p.year,tier:0,loaded:false,busy:false,available:null,board:null,match:null,feedback:null,unlocked:[0],identity,error:'',streak:0};
  }
  if(!world.loaded&&!world.busy)queueMicrotask(loadWorldBoard);
@@ -878,13 +870,13 @@ async function loadWorldBoard(){
 async function joinWorld(){
  if(world.busy||!world.available||!player())return;
  const state=world;state.busy=true;render();
- try{state.identity=await leagueApi('join',{body:{}});localStorage.setItem(`matchday.world.${state.profileId}`,JSON.stringify(state.identity));state.unlocked=[0];state.error='';}
+ try{state.identity=await leagueApi('join',{body:{}});localStorage.setItem(`kickmaths.world.${state.profileId}`,JSON.stringify(state.identity));state.unlocked=[0];state.error='';}
  catch(error){state.error=error.message;}
  finally{state.busy=false;if(view==='world'&&world===state)render();}
 }
 function forgetWorld(state){
  state.identity=null;state.unlocked=[0];state.report=null;
- try{localStorage.removeItem(`matchday.world.${state.profileId}`);}catch{}
+ try{localStorage.removeItem(`kickmaths.world.${state.profileId}`);}catch{}
 }
 async function leaveWorld(){
  const state=world;
@@ -970,4 +962,4 @@ function renderWorldMatch(){
   }
  },250);
 }
-const requestedYear=Number(new URLSearchParams(location.search).get('year'));year=requestedYear>=1&&requestedYear<=6?requestedYear:player()?.year||1;const requestedSkill=new URLSearchParams(location.search).get('skill');if(skillById(requestedSkill)&&!session){pendingSkill=requestedSkill;if(player())startMatch(pendingSkill);else view='players';}render();if(session)startTick();if('speechSynthesis'in window){voices=speechSynthesis.getVoices();speechSynthesis.addEventListener('voiceschanged',()=>{voices=speechSynthesis.getVoices();if(view==='coach'&&!session&&!result)render();});}
+const requestedYear=Number(new URLSearchParams(location.search).get('year'));year=requestedYear>=1&&requestedYear<=6?requestedYear:player()?.year||1;const requestedSkill=new URLSearchParams(location.search).get('skill');if(skillById(requestedSkill)&&!session){pendingSkill=requestedSkill;if(player())startMatch(pendingSkill);else view='players';}render();if(session)startTick();

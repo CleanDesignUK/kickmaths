@@ -1,8 +1,8 @@
-name: Verify Matchday
+name: Verify KickMaths
 
 on:
   push:
-    branches: [main, launch/november-readiness, launch/november-8-feedback, fix/first-lesson-and-feedback, fix/paid-customisation]
+    branches: [main, launch/kickmaths]
   pull_request:
   workflow_dispatch:
 
@@ -24,7 +24,7 @@ jobs:
         run: npm run build
       - name: Build Worker
         run: npm run build:worker
-      - name: Verify learning, scoring, reports and league API
+      - name: Verify learning, scoring, reports and site
         run: npm test
       - name: Check generated pages match committed source
         run: git diff --exit-code -- dist
