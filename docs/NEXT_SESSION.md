@@ -1,18 +1,18 @@
 # Current KickMaths checkpoint
 
-Latest release source: KickMaths 8.0.1, covering the approved crest/favicon and player-picker layout. Read KICKMATHS_8_0_1.md for changes and browser evidence. This release is published by GitHub Pages after its PR merges; check the latest main SHA and Actions status before continuing.
+Latest release source: KickMaths 8.0.2, the free beta launch. Read FREE_BETA_LAUNCH.md. Publishing uses the existing GitHub Pages workflow after a verified PR merges; check the latest main SHA and Actions status before further changes.
 
-Public website: https://cleandesignuk.github.io/kickmaths/
+Website: https://cleandesignuk.github.io/kickmaths/
 Game: https://cleandesignuk.github.io/kickmaths/play/
 
-- The full original game and history are preserved in CleanDesignUK/kickmaths. The original primary-uk-maths repository is unchanged.
-- All 150 tests pass, alongside syntax and both builds. The latest browser checks cover desktop and 320px player layout, header/footer crests and public mobile navigation. The Worker test verifies binary asset bytes and MIME types.
-- £2 per pupil per year is confirmed for both families and schools.
+- Current instruction: free beta for families and schools. A paid version is coming soon. Public prices and annual subscription offers have been removed. Do not reinstate the earlier £2 pupil/year price or implement checkout/code activation during beta.
+- /beta/ replaces the public pricing page. The old /pricing/ URL redirects to /beta/ and is excluded from the sitemap. All 34 public pages, search metadata, social sharing artwork and the game entry/dashboard describe free beta access.
+- Progress, reports and the Squad League stay in each browser. Local Backup/Restore remains important; no cloud account service has been added.
 - Contact: enquiries@kickmaths.co.uk. Feedback: https://forms.gle/SYBiVhoeEzwWpkvu9.
-- 34 public pages include About, Contact, Pricing and Dyslexia-friendly maths, with 16px/18px body text, matching navigation, larger footers and no website button arrows.
-- Game audio is removed. Dyslexia-friendly mode is explicitly labelled. Learning/reward/shop rules and legacy backup format remain; KickMaths storage keys keep old-game data separate.
-- Pages activation is complete. Do not ask the owner to enable it again.
-- kickmaths.co.uk DNS is not connected. Canonicals and sitemap use the intended domain. Do not add a CNAME redirect until DNS is ready.
-- Pricing is displayed; checkout and paid access are not implemented. Progress and the Squad League remain local to each browser. The owner declined Stripe and uses Tide; Tide Instant Checkout has a £5 minimum. PayPal Business is proposed but unselected. Read PAYMENT_ACCESS_PLAN.md before implementing.
+- The approved crests, 16px/18px website copy, accessible navigation, no website button arrows and explicitly labelled dyslexia-friendly mode remain. Game audio is removed.
+- Pages activation is complete; do not ask the owner to enable it again.
+- kickmaths.co.uk DNS is not connected. Do not add a CNAME redirect until DNS is ready.
+- The original primary-uk-maths repository is unchanged. Full game history is preserved in CleanDesignUK/kickmaths.
+- Before paid work was paused, £5 lifetime per activated device/browser with Tide was discussed. It was not built. PAYMENT_ACCESS_PLAN.md is archived context, not the current launch requirements.
 
-Keep changes in focused commits, test the actual affected screens and merge through verified PRs. Never report payments or domain setup complete without checking them.
+Keep changes in focused commits. Run appropriate tests and builds, inspect the affected desktop and phone layouts, and merge through checked PRs before reporting an update live.

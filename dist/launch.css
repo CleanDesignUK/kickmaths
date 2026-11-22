@@ -356,3 +356,8 @@ body.arcade {margin:0;min-height:100dvh;font-size:16px;line-height:1.55}
  .arcade .squad-player{grid-template-columns:minmax(0,1fr) 98px;gap:16px;padding:22px 18px}
 }
 @media(max-width:370px){.arcade .player-picker-topbar .brand-type{font-size:17px}.arcade .squad-player{grid-template-columns:minmax(0,1fr) 82px;gap:14px}}
+
+.arcade .game-beta-notice{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;padding:16px 20px;margin:0 0 20px;border:1px solid #627c35;border-radius:16px;background:#19382b;color:#f5faed;font-size:1rem;line-height:1.6}
+.arcade .game-beta-notice p{margin:0;color:#f5faed;font:inherit}
+.arcade .game-beta-notice strong{display:inline-block;margin-right:8px;color:#d8f36c}
+.arcade .game-beta-notice a{color:#d8f36c;font-weight:700;text-underline-offset:3px}

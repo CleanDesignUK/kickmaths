@@ -13,23 +13,44 @@ test('the launch website has valid routes, KickMaths metadata and no old brand a
   assert.ok(page.url.startsWith('https://kickmaths.co.uk/'));
   assert.match(html,/<title>[^<]*KickMaths<\/title>/);
   assert.doesNotMatch(html,/Matchday|North Wales Tutoring|northwalestutoring|Their next goal starts/);
-  assert.doesNotMatch(html,/isAccessibleForFree":true/);
+  assert.doesNotMatch(html,/isAccessibleForFree":false/);
   assert.equal((html.match(/<h1>/g)||[]).length,1,page.slug);
   for(const match of html.matchAll(/href="([^\"]*play\/[^\"]*)"/g)){
    const url=new URL(match[1],'https://kickmaths.co.uk/'+(page.slug?page.slug+'/':''));
    if(url.searchParams.has('skill'))assert.ok(skillById(url.searchParams.get('skill')),`${page.slug}: ${url}`);
   }
  }
- for(const slug of ['about','contact','pricing','dyslexia-friendly-maths'])assert.ok(pages.some(p=>p.slug===slug));
+ for(const slug of ['about','contact','beta','dyslexia-friendly-maths'])assert.ok(pages.some(p=>p.slug===slug));
 });
 
-test('pricing consistently uses the confirmed £2 annual pupil rate for home and school',()=>{
- const home=read('dist/index.html'),pricing=read('dist/pricing/index.html'),schools=read('dist/teachers/index.html');
- assert.match(home,/£2 per pupil per year/);assert.match(pricing,/30<\/td><td>£60/);assert.match(pricing,/100<\/td><td>£200/);
- assert.match(schools,/30 pupils cost £60 per year/);
+test('every public page describes the free beta without advertising paid access or old prices',()=>{
+ for(const page of pages){
+  const html=read(`dist/${page.slug?`${page.slug}/`:''}index.html`);
+  assert.match(html,/aria-label="Free beta"/,page.slug);
+  assert.match(html,/A paid version is coming soon\./,page.slug);
+  assert.doesNotMatch(html,/£\d|per pupil per year|priceCurrency|price-card|href="[^"]*pricing\//,page.slug);
+  const data=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  for(const resource of data.filter(x=>x['@type']==='LearningResource'))assert.equal(resource.isAccessibleForFree,true,page.slug);
+ }
+ const home=read('dist/index.html');
  const data=JSON.parse(home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
- const offer=data.find(x=>x['@type']==='SoftwareApplication').offers;
- assert.equal(offer.price,'2.00');assert.equal(offer.priceCurrency,'GBP');
+ const app=data.find(x=>x['@type']==='SoftwareApplication');
+ assert.equal(app.isAccessibleForFree,true);assert.equal(app.offers,undefined);
+ const beta=read('dist/beta/index.html');
+ assert.match(beta,/No payment or activation code is needed/);
+ assert.ok(beta.includes(FEEDBACK_FORM_URL));
+ const social=read('dist/assets/kickmaths-beta-social.svg');
+ assert.match(social,/Free beta/);assert.doesNotMatch(social,/£\d/);
+});
+
+test('old pricing links lead to free beta information and do not remain in the sitemap',()=>{
+ const redirect=read('dist/pricing/index.html');
+ assert.match(redirect,/name="robots" content="noindex,follow"/);
+ assert.match(redirect,/http-equiv="refresh" content="0;url=\.\.\/beta\/"/);
+ assert.match(redirect,/href="\.\.\/beta\/"/);
+ assert.doesNotMatch(redirect,/£\d|price-card/);
+ assert.doesNotMatch(read('dist/sitemap.xml'),/\/pricing\//);
+ assert.match(read('dist/sitemap.xml'),/\/beta\//);
 });
 
 test('contact and game feedback point at the supplied form and email',()=>{
