@@ -1,12 +1,12 @@
-import {skillById,questionPool,selectQuestion,recordFact,localDay,DAY,skillStats} from './engine.mjs?v=8.0.2';
-import {syllabusIds,domainFor} from './curriculum.mjs?v=8.0.2';
-import {focusTables,tableEvidence,tableQuestion} from './tables.mjs?v=8.0.2';
+import {skillById,questionPool,selectQuestion,recordFact,localDay,DAY,skillStats} from './engine.mjs?v=8.0.3';
+import {syllabusIds,domainFor} from './curriculum.mjs?v=8.0.3';
+import {focusTables,tableEvidence,tableQuestion} from './tables.mjs?v=8.0.3';
 
-import {writtenTask} from './written-work.mjs?v=8.0.2';
-import {methodEntry,practicePool,practiceQuestion,recoveryStep,methodVariant} from './difficulty.mjs?v=8.0.2';
+import {writtenTask} from './written-work.mjs?v=8.0.3';
+import {methodEntry,practicePool,practiceQuestion,recoveryStep,methodVariant} from './difficulty.mjs?v=8.0.3';
 
-import {requirements,validateTeachingOrder} from './teaching-order.mjs?v=8.0.2';
-export {requirements,REQUIREMENTS} from './teaching-order.mjs?v=8.0.2';
+import {requirements,validateTeachingOrder} from './teaching-order.mjs?v=8.0.3';
+export {requirements,REQUIREMENTS} from './teaching-order.mjs?v=8.0.3';
 export const validateLearningGraph=validateTeachingOrder;
 
 export function initLearning(p){

@@ -27,3 +27,11 @@ body.reading-mode{background:#fff4df;font-family:Arial,Verdana,sans-serif;letter
 .m-beta-banner strong{display:inline-block;margin-right:8px}
 .m-beta-banner a{color:#153d2d;font-weight:700;text-underline-offset:3px}
 @media(max-width:580px){.m-beta-banner{padding:16px;margin-top:16px;gap:8px}}
+
+.cookie-banner{max-height:calc(100dvh - 20px);overflow:auto}
+.cookie-options{display:grid;gap:12px;margin-top:16px}
+.cookie-options label{display:flex;align-items:flex-start;gap:10px;font-size:16px;line-height:1.5;color:#153d2d}
+.cookie-options label[hidden]{display:none}
+.cookie-options input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:#153d2d}
+[data-cookie-error]{font-size:16px;line-height:1.5;color:#882c24;margin-top:12px}
+[data-cookie-error]:empty{display:none}
