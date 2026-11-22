@@ -25,4 +25,15 @@ Custom domain: kickmaths.co.uk did not resolve during setup. Canonicals are prep
 
 The requested £2 price is published as pricing information. Payment checkout, paid accounts and licence enforcement are not implemented. The static launch retains browser-local reports and Squad League; it does not invent a cloud school dashboard.
 
-Verification evidence and deployment results should be added as checks complete. Read the latest GitHub commit and Actions status before continuing after a disconnection.
+## Verification
+
+- 149 automated tests pass; module syntax, marketing build, Worker build and whitespace checks pass.
+- GitHub verification passed for source checkpoint 7d1d3d9a3e3b99d07dca13be38d8e2ee523296d8.
+- Browser: desktop and 320px phone layouts checked; the phone viewport and scroll width both settle at 305px (320px frame including scrollbar). Mobile navigation opens and closes through the labelled Menu button.
+- Body paragraph fonts resolve to 16px or 18px. Header/dropdown navigation resolves to 16px; footer links are 16px and tagline 18px.
+- Cookie choices: Essential only lets reading mode work without persisting it after reload; Remember preferences persists the choice. Cookie settings reopens the banner.
+- The game accepts a correct answer, awards pending independent XP and shows visual goal feedback. Asking Coach shows written working and a working next-question action. Speech buttons and read-aloud settings are absent. The dyslexia checkbox changes the reading font and layout.
+- Contact email and feedback button verified. The supplied Google link opens the form titled KickMaths Feedback. No form response was submitted.
+- Screenshots are in screenshots/kickmaths/.
+
+GitHub Pages activation is still required for this new repository. The code is concrete and committed; the connector cannot change that repository setting, and the browser currently requires GitHub sign-in. Domain DNS also remains unconfigured. Read the latest GitHub commit and Actions status before continuing after a disconnection.
