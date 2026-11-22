@@ -1,0 +1,31 @@
+name: Import original game history
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/import-primary-game.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve original game and history
+        shell: bash
+        run: |
+          if git cat-file -e HEAD:dist/engine.mjs 2>/dev/null; then
+            echo "Game source already imported."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add original https://github.com/CleanDesignUK/primary-uk-maths.git
+          git fetch original main
+          git merge --allow-unrelated-histories --no-edit original/main -m "Import complete primary maths game with original history"
+          git push origin HEAD:main
