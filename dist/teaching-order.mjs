@@ -1,5 +1,5 @@
-import {SKILLS} from './engine.mjs?v=8.0.2';
-import {syllabusIds} from './curriculum.mjs?v=8.0.2';
+import {SKILLS} from './engine.mjs?v=8.0.3';
+import {syllabusIds} from './curriculum.mjs?v=8.0.3';
 
 // In each list, put the most useful first check before other related foundations.
 // These are possible routes for support, not a checklist a pupil must complete.

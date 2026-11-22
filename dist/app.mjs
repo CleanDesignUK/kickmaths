@@ -1,30 +1,32 @@
-import {migrateWrittenDraft} from './question-compat.mjs?v=8.0.2';
-import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=8.0.2';
-import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=8.0.2';
-import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=8.0.2';
-import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=8.0.2';
-import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=8.0.2';
-import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=8.0.2';
-import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=8.0.2';
-import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=8.0.2';
-import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=8.0.2';
-import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=8.0.2';
-import {avatarSVG} from './avatar.mjs?v=8.0.2';
-import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=8.0.2';
-import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=8.0.2';
-import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=8.0.2';
-import {focusTables} from './tables.mjs?v=8.0.2';
-import {columnWorkspace} from './column-method.mjs?v=8.0.2';
-import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=8.0.2';
-import {setMatchDock} from './match-dock.mjs?v=8.0.2';
-import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=8.0.2';
+import {initUsage,recordUsageMatch,recordPlayerActive,recordDemoAnswer} from './usage.mjs?v=8.0.3';
+import {migrateWrittenDraft} from './question-compat.mjs?v=8.0.3';
+import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=8.0.3';
+import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=8.0.3';
+import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=8.0.3';
+import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=8.0.3';
+import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=8.0.3';
+import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=8.0.3';
+import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=8.0.3';
+import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=8.0.3';
+import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=8.0.3';
+import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=8.0.3';
+import {avatarSVG} from './avatar.mjs?v=8.0.3';
+import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=8.0.3';
+import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=8.0.3';
+import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=8.0.3';
+import {focusTables} from './tables.mjs?v=8.0.3';
+import {columnWorkspace} from './column-method.mjs?v=8.0.3';
+import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=8.0.3';
+import {setMatchDock} from './match-dock.mjs?v=8.0.3';
+import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=8.0.3';
 
-import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=8.0.2';
-import {receiveProgress} from './tab-sync.mjs?v=8.0.2';
-import {groupBrandMarkup} from './branding.mjs?v=8.0.2';
+import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=8.0.3';
+import {receiveProgress} from './tab-sync.mjs?v=8.0.3';
+import {groupBrandMarkup} from './branding.mjs?v=8.0.3';
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const STORAGE='kickmaths.data.v1',DRAFT='kickmaths.round.v1';
+initUsage('game');
 const app=$('#app'),modalRoot=$('#modal-root');
 const touchMatch=matchMedia('(max-width: 680px), (pointer: coarse)');
 const padFields='#answer,.column-digit,.column-note,.work-note,[data-fraction-part],.bar-input,#world-answer-form input';
@@ -140,6 +142,7 @@ function takeFirstShot(answer){
  const drill=$('.first-shot');
  const question=firstShots[firstShot.index];
  if(!drill||firstShot.goal||!question.choices.includes(answer))return;
+ recordDemoAnswer();
  const goal=answerMatches(question,answer);
  firstShot.goal=goal;
  paintShot($('.penalty-view',drill),{question,correct:goal,attempt:firstShot.index+1,aim:'centre',replay:true});
@@ -205,6 +208,7 @@ function startMatch(manual=null,options={}) {
   rows:[],seen,retries:[],paused:false,pausedEver:false,hintsUsed:0,assisted:false,phase:'question',q:null,selection:null,
   answer:'',digits:[],notes:[],drawing:[],bars:[],angle:30,work:{},scratch:'',remainder:''
  };
+ recordUsageMatch('game_start',session);
  nextQuestion(false);renderGame();startTick();saveRound();scrollTo({top:0});
 }
 
@@ -454,6 +458,7 @@ function submit(value=null,askedCoach=false) {
   row.celebration=after?.complete&&!missionBefore?.complete?'MISSION WON!':session.streak===8?'METEOR!':session.streak===5?'FIREBALL!':session.streak===3?'HAT-TRICK!':targetHit?'TOP BINS!':session.rows.at(-1)?.correct===false?'COMEBACK!':'';
  }
  session.rows.push(row);
+ if(!unknown)recordPlayerActive();
  recordLearning(p,q,correct,assisted,row.ms,session.id,now,row.reason==='probe',unknown,row.coachFor);
  if(session.selection.reason==='probe'){
   p.placementProgress=session.probeIndex;
@@ -541,6 +546,7 @@ function resumeSaved(){
  const saved=savedRound();
  if(!saved)return;
  closeDialog();pendingMatch=null;result=null;session=saved;session.paused=false;
+ recordUsageMatch('game_resume',session);
  renderGame();startTick();saveRound();scrollTo({top:0});
 }
 function finishMatch(complete,showResult=true) {
@@ -568,6 +574,7 @@ function finishMatch(complete,showResult=true) {
   saved.medals=medals(p).filter(x=>x[3]&&!before.has(x[0])).map(x=>({name:x[0],symbol:x[2]}));
   save();
  }
+ if(saved.attempts)recordUsageMatch(saved.complete?'game_complete':'game_save',saved);
  draftRounds.delete(p.id);session=null;result=showResult?saved:null;saveRound();
  if(!showResult)return;
  renderResult();

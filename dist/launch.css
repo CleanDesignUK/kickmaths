@@ -361,3 +361,9 @@ body.arcade {margin:0;min-height:100dvh;font-size:16px;line-height:1.55}
 .arcade .game-beta-notice p{margin:0;color:#f5faed;font:inherit}
 .arcade .game-beta-notice strong{display:inline-block;margin-right:8px;color:#d8f36c}
 .arcade .game-beta-notice a{color:#d8f36c;font-weight:700;text-underline-offset:3px}
+
+.arcade .usage-settings p{font-size:16px;line-height:1.65;color:#263e2d}
+.arcade .usage-settings .setting-check{font-size:16px;line-height:1.5;align-items:flex-start;margin-block:16px}
+.arcade .usage-settings input{flex:none;width:20px;height:20px;margin-top:2px}
+.arcade .usage-settings [data-usage-status]{margin-top:12px;font-weight:650}
+.arcade .usage-settings [data-usage-status]:empty{display:none}
