@@ -1,27 +1,27 @@
-import {migrateWrittenDraft} from './question-compat.mjs?v=8.0.0';
-import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=8.0.0';
-import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=8.0.0';
-import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=8.0.0';
-import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=8.0.0';
-import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=8.0.0';
-import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=8.0.0';
-import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=8.0.0';
-import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=8.0.0';
-import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=8.0.0';
-import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=8.0.0';
-import {avatarSVG} from './avatar.mjs?v=8.0.0';
-import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=8.0.0';
-import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=8.0.0';
-import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=8.0.0';
-import {focusTables} from './tables.mjs?v=8.0.0';
-import {columnWorkspace} from './column-method.mjs?v=8.0.0';
-import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=8.0.0';
-import {setMatchDock} from './match-dock.mjs?v=8.0.0';
-import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=8.0.0';
+import {migrateWrittenDraft} from './question-compat.mjs?v=8.0.1';
+import {VERSION,DAY,SKILLS,skillById,questionPool,initialData,newProfile,validateImport,profileSummary,skillStats,factSecure,explain,columnSteps,localDay,uid} from './engine.mjs?v=8.0.1';
+import {DOMAINS,syllabusIds,domainFor,answerMatches,validDrawing,parseNumber} from './curriculum.mjs?v=8.0.1';
+import {initLearning,competency,planSummary,nextAdaptive,recordLearning,probeIds,laneFocus,progressCheckPlan,progressCheckQuestions,nextFoundationCheck,roundRecommendation,coachPathFor} from './adaptive.mjs?v=8.0.1';
+import {esc,icon,kit,stadium,diagram,mathText} from './visuals.mjs?v=8.0.1';
+import {earnedXP,eligibleRecord,newPersonalBest,MATCH_SCHEMA,initRewards,isCoachChallenge,isRewardRound,rewardCandidate,revealFact,bankCareerXP,grantStarterCredits,migrateFirstWarmupXP} from './rewards.mjs?v=8.0.1';
+import {isWrittenSkill,writtenAllowance,writtenTask,writtenSubmission,multiplicationWorkspace,divisionWorkspace} from './written-work.mjs?v=8.0.1';
+import {goalsMarkup,pathMarkup,factMapMarkup,workedMarkup,penaltyArena} from './experience.mjs?v=8.0.1';
+import {warmupProgress,matchTimeLeft,tickMatchClock,academyPath} from './progression.mjs?v=8.0.1';
+import {pickerView,firstShots,firstShotView,homeView,lockerView,leagueView,tablesView,syllabusView,syllabusBank,syllabusCards,progressView,reportContent,coachView,appearanceView,clubJourneyView,coachNextCard,drillTitle as shortTitle} from './academy-ui.mjs?v=8.0.1';
+import {initCareer,careerLevel,careerXP,levelProgress,credits,buyItem,equipItem,setAppearanceChoice,owns,chooseClub,careerNews,clubProgress,viewClubOffers,CLUBS,SKIN_TONES,HAIR_COLOURS,POSITIONS,itemById,PLAYER_THEMES,KIT_TRIMS,ITEMS} from './career.mjs?v=8.0.1';
+import {avatarSVG} from './avatar.mjs?v=8.0.1';
+import {AIM_ZONES,matchMission,missionProgress,paintShot,spotlightZone} from './shot.mjs?v=8.0.1';
+import {leagueApi,worldBoardView,worldMatchView,worldClock} from './world.mjs?v=8.0.1';
+import {yearProgress,checkPromotion,initLeague,recordLeague} from './promotion.mjs?v=8.0.1';
+import {focusTables} from './tables.mjs?v=8.0.1';
+import {columnWorkspace} from './column-method.mjs?v=8.0.1';
+import {takesFraction,fractionParts,fractionSubmission,fractionAnswerMarkup} from './fraction-answer.mjs?v=8.0.1';
+import {setMatchDock} from './match-dock.mjs?v=8.0.1';
+import {animatedItem,fullTimeShowcase,cosmeticPreview,playShowcase,levelMoment} from './celebrations.mjs?v=8.0.1';
 
-import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=8.0.0';
-import {receiveProgress} from './tab-sync.mjs?v=8.0.0';
-import {groupBrandMarkup} from './branding.mjs?v=8.0.0';
+import {medals,medalsMarkup,historyMarkup} from './match-records.mjs?v=8.0.1';
+import {receiveProgress} from './tab-sync.mjs?v=8.0.1';
+import {groupBrandMarkup} from './branding.mjs?v=8.0.1';
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const STORAGE='kickmaths.data.v1',DRAFT='kickmaths.round.v1';
@@ -78,7 +78,7 @@ function saveRound(){
 function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),3300);}
 function profileDot(p){return `<span class="profile-dot">${p?.look?.number||9}</span>`;}
 function brand(){
- return `<a class="brand" href="#home" data-action="home" aria-label="KickMaths home"><span class="brand-mark">${icon('ball',26)}</span><span class="brand-type">Kick<em>Maths</em></span></a>`;
+ return `<a class="brand" href="#home" data-action="home" aria-label="KickMaths home"><img class="brand-crest" src="../assets/kickmaths-crest-small.png" srcset="../assets/kickmaths-crest.png 2x" width="40" height="54" alt="" decoding="async"><span class="brand-type">Kick<em>Maths</em></span></a>`;
 }
 const gameMenu = [
  ["home","Dashboard","grid"],
@@ -96,9 +96,9 @@ function gameNavigation(activeView=view){
   </button>`;
  }).join('')}</nav>`;
 }
-function header(hasMenu){
+function header(hasMenu,isPicker=false){
  const p=player();
- return `<header class="header arcade-topbar ${hasMenu?'has-game-menu':''}">
+ return `<header class="header arcade-topbar ${hasMenu?'has-game-menu':''} ${isPicker?'player-picker-topbar':''}">
   ${brand()}${hasMenu?gameNavigation():''}
   <div class="header-tools">
    ${p&&data.activeId?`<button class="profile-mini" data-action="players" aria-label="Switch player, ${esc(p.name)}">${profileDot(p)}<span>${esc(p.name)}</span></button>`:''}
@@ -132,7 +132,7 @@ function render(){
  const pages={players:playersPage,home:homePage,tables:()=>tablesView(player(),gym),syllabus:syllabusPage,written:writtenPage,world:worldPage,stats:statsPage,coach:coachPage,locker:()=>lockerView(player(),shopSlot),league:()=>leagueView(data,player(),leaguePeriod,leagueYear)};
  const resume=savedRound();
  const ribbon=resume&&hasMenu?`<aside class="resume-ribbon"><div>${icon('ball',20)} <b>Match saved</b><small>${resume.attempts}/${resume.target} played</small></div><button class="btn lime" data-action="resume-saved">Resume ${icon('play',17)}</button></aside>`:'';
- app.innerHTML=`<div class="shell arcade-shell">${header(hasMenu)}<main id="main" class="${content==='players'?'welcome':'page'} arcade-page" tabindex="-1">${storageWarning?`<div class="storage-warning" role="alert">${esc(storageWarning)}</div>`:''}${ribbon}${(pages[content]||playersPage)()}</main>${footer()}</div>`;
+ app.innerHTML=`<div class="shell arcade-shell">${header(hasMenu,content==='players')}<main id="main" class="${content==='players'?'welcome':'page'} arcade-page" tabindex="-1">${storageWarning?`<div class="storage-warning" role="alert">${esc(storageWarning)}</div>`:''}${ribbon}${(pages[content]||playersPage)()}</main>${footer()}</div>`;
  applyAccessPreferences();
 }
 function playersPage(){return pickerView(data,firstShot);}

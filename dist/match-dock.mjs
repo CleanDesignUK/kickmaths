@@ -1,4 +1,4 @@
-import {esc,icon} from './visuals.mjs?v=8.0.0';
+import {esc,icon} from './visuals.mjs?v=8.0.1';
 
 export function setMatchDock(pad,{
  touch,typed,done,busy=false,choices=false,symbols=[],caption='',resultLabel=caption,

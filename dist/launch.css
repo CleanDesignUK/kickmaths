@@ -338,3 +338,21 @@ body.arcade {margin:0;min-height:100dvh;font-size:16px;line-height:1.55}
 .arcade-footer{font-size:16px;line-height:1.65;gap:16px;flex-wrap:wrap}
 .arcade-footer>div{display:flex;flex-wrap:wrap;gap:16px}
 .arcade-footer a,.arcade-footer button{font-size:16px}
+
+/* Approved crest artwork and breathing room on the player picker. */
+.arcade .brand-crest{display:block;width:40px;height:54px;object-fit:contain;flex:none}
+.arcade .player-picker-topbar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand tools";padding-inline:12px;gap:16px}
+.arcade .player-picker-topbar .profile-mini{display:none}
+.arcade .squad-player{display:grid;grid-template-columns:minmax(0,1fr) clamp(80px,10vw,125px);gap:20px;align-items:center}
+.arcade .squad-player>.block-player{width:100%;min-width:0;max-height:200px;height:auto;margin:0}
+.arcade .squad-info{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
+.arcade .squad-info h2{margin:0}
+.arcade .squad-info small{display:block;line-height:1.5}
+.arcade .squad-info .squad-play{display:flex;align-self:flex-start;margin:4px 0 0;min-height:44px;max-width:none}
+@media(max-width:680px){
+ .arcade .shell.arcade-shell{padding-inline:max(16px,env(safe-area-inset-left))}
+ .arcade .brand-crest{width:30px;height:40px}
+ .arcade .player-picker-topbar{padding:12px 10px;column-gap:12px}
+ .arcade .squad-player{grid-template-columns:minmax(0,1fr) 98px;gap:16px;padding:22px 18px}
+}
+@media(max-width:370px){.arcade .player-picker-topbar .brand-type{font-size:17px}.arcade .squad-player{grid-template-columns:minmax(0,1fr) 82px;gap:14px}}
