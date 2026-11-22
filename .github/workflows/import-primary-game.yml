@@ -1,3 +1,4 @@
+# Original verification workflow is installed before importing history.
 name: Import original game history
 
 on:
