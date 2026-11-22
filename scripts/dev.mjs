@@ -24,7 +24,7 @@ createServer(async (incoming,outgoing)=>{
     if(previewUrl.pathname==='/__phone/'){
       const width=Math.max(320,Math.min(480,Number(previewUrl.searchParams.get('width'))||390));
       const skill=previewUrl.searchParams.get('skill')||'';
-      const page=['home','tables','locker','league','world'].includes(previewUrl.searchParams.get('page'))?previewUrl.searchParams.get('page'):'home';
+      const page=['home','players','tables','locker','league','world'].includes(previewUrl.searchParams.get('page'))?previewUrl.searchParams.get('page'):'home';
       const entry='/play/'+(skill?'?skill='+encodeURIComponent(skill):'')+'#'+page;
       outgoing.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});
       outgoing.end(`<!doctype html><html lang="en"><title>Phone preview</title><body style="margin:0;background:#dce6d5"><iframe title="Phone preview" src="${entry}" style="display:block;width:${width}px;height:844px;border:0"></iframe></body></html>`);
@@ -38,7 +38,7 @@ createServer(async (incoming,outgoing)=>{
         try{
           if((await stat(file)).isDirectory())file=resolve(file,'index.html');
           const body=await readFile(file);
-          const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.json':'application/json','.jpg':'image/jpeg','.png':'image/png','.woff2':'font/woff2'};
+          const types={'.html':'text/html','.css':'text/css','.mjs':'text/javascript','.js':'text/javascript','.svg':'image/svg+xml','.json':'application/json','.jpg':'image/jpeg','.png':'image/png','.ico':'image/x-icon','.webmanifest':'application/manifest+json','.woff2':'font/woff2'};
           outgoing.writeHead(200,{'Content-Type':types[extname(file)]||'application/octet-stream','Cache-Control':'no-store'});
           outgoing.end(incoming.method==='HEAD'?undefined:body);return;
         }catch{ /* The Worker provides redirects and 404s for missing static routes. */ }

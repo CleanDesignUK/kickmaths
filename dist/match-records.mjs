@@ -1,6 +1,6 @@
-import {profileSummary,skillById} from './engine.mjs?v=8.0.0';
-import {missionProgress} from './shot.mjs?v=8.0.0';
-import {esc,icon} from './visuals.mjs?v=8.0.0';
+import {profileSummary,skillById} from './engine.mjs?v=8.0.1';
+import {missionProgress} from './shot.mjs?v=8.0.1';
+import {esc,icon} from './visuals.mjs?v=8.0.1';
 
 export function medals(p){
  const summary=profileSummary(p),matches=p.sessions||[],goals=p.goalsTotal??matches.reduce((n,s)=>n+s.correct,0);
