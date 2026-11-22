@@ -12,6 +12,15 @@ const port=Number(process.env.PORT||(portArgument>=0?process.argv[portArgument+1
 createServer(async (incoming,outgoing)=>{
   try{
     const previewUrl=new URL(incoming.url,`http://${incoming.headers.host}`);
+    if(previewUrl.pathname==='/__site-phone/'){
+      const width=Math.max(320,Math.min(480,Number(previewUrl.searchParams.get('width'))||390));
+      const page=previewUrl.searchParams.get('page')||'';
+      const pages=JSON.parse(await readFile('dist/marketing-pages.json','utf8'));
+      const target=pages.some(p=>p.slug===page)?page:'';
+      outgoing.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});
+      outgoing.end(`<!doctype html><html lang="en"><title>Website phone preview</title><body style="margin:0;background:#dce6d5"><iframe title="Website phone preview" src="/${target?target+'/':''}" style="display:block;width:${width}px;height:844px;border:0"></iframe></body></html>`);
+      return;
+    }
     if(previewUrl.pathname==='/__phone/'){
       const width=Math.max(320,Math.min(480,Number(previewUrl.searchParams.get('width'))||390));
       const skill=previewUrl.searchParams.get('skill')||'';

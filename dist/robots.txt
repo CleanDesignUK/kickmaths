@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /play/
-Sitemap: https://cleandesignuk.github.io/primary-uk-maths/dist/sitemap.xml
+Sitemap: https://kickmaths.co.uk/sitemap.xml

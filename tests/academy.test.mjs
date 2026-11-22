@@ -98,13 +98,13 @@ test('British read-aloud selects a real en-GB voice and speaks mathematical nota
  const us={name:'US',lang:'en-US',voiceURI:'us'},gb={name:'British',lang:'en-GB',voiceURI:'gb',localService:true};assert.equal(selectBritishVoice([us]),null);assert.equal(selectBritishVoice([us,gb],'us'),gb);
  assert.equal(shotType({op:'−'}),'curl');assert.equal(shotType({skillId:'longDiv6'}),'chip');assert.equal(superMove(5).id,'fire');assert.equal(superMove(8).id,'meteor');
 });
-test('30 marketing pages have unique metadata, valid structured data and working local links',()=>{
- const root=path.resolve('dist'),pages=JSON.parse(readFileSync('dist/marketing-pages.json','utf8')),titles=new Set();assert.equal(pages.length,30);
- for(const page of pages){const dir=path.join(root,page.slug),html=readFileSync(path.join(dir,'index.html'),'utf8');assert.ok(!titles.has(page.title));titles.add(page.title);assert.match(html,/<html lang="en-GB">/);assert.match(html,/<meta name="description" content="[^\"]+"/);assert.match(html,/<link rel="canonical"/);assert.ok(JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]).some(s=>s.isAccessibleForFree===true));
-  for(const match of html.matchAll(/(?:href|src)="([^\"]+)"/g)){const href=match[1];if(/^(?:https?:|#|data:)/.test(href))continue;const file=path.resolve(dir,href.split(/[?#]/)[0]);assert.ok(file.startsWith(root),href);assert.ok(existsSync(file),`${page.slug}: ${href}`);}
+test('34 marketing pages have unique metadata, valid structured data and working local links',()=>{
+ const root=path.resolve('dist'),pages=JSON.parse(readFileSync('dist/marketing-pages.json','utf8')),titles=new Set();assert.equal(pages.length,34);
+ for(const page of pages){const dir=path.join(root,page.slug),html=readFileSync(path.join(dir,'index.html'),'utf8');assert.ok(!titles.has(page.title));titles.add(page.title);assert.match(html,/<html lang="en-GB">/);assert.match(html,/<meta name="description" content="[^\"]+"/);assert.match(html,/<link rel="canonical"/);assert.ok(JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]).some(s=>s.publisher?.name==='KickMaths'));
+  for(const match of html.matchAll(/(?:href|src)="([^\"]+)"/g)){const href=match[1];if(/^(?:https?:|mailto:|#|data:)/.test(href))continue;const file=path.resolve(dir,href.split(/[?#]/)[0]);assert.ok(file.startsWith(root),href);assert.ok(existsSync(file),`${page.slug}: ${href}`);}
  }
- assert.match(readFileSync('index.html','utf8'),/url=\.\/dist\/play\//);
- assert.equal((readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length,30);assert.match(readFileSync('dist/play/index.html','utf8'),/noindex,follow/);assert.match(readFileSync('dist/robots.txt','utf8'),/Disallow: \/play\//);
+ assert.match(readFileSync('index.html','utf8'),/url=\.\/dist\//);
+ assert.equal((readFileSync('dist/sitemap.xml','utf8').match(/<loc>/g)||[]).length,34);assert.match(readFileSync('dist/play/index.html','utf8'),/noindex,follow/);assert.match(readFileSync('dist/robots.txt','utf8'),/Disallow: \/play\//);
 });
 
 test('written methods preserve actual exchanges, including repeated exchanges and zeros',async()=>{

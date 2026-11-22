@@ -1,18 +1,17 @@
-import {SKILLS,skillById,profileSummary,localDay} from './engine.mjs?v=7.1.2';
-import {DOMAINS,syllabusIds,domainFor} from './curriculum.mjs?v=7.1.2';
-import {competency,planSummary,probeIds,progressCheckPlan,roundRecommendation} from './adaptive.mjs?v=7.1.2';
-import {esc,icon,mathText,diagram} from './visuals.mjs?v=7.1.2';
-import {avatarSVG,clubBadge} from './avatar.mjs?v=7.1.2';
-import {ITEMS,CLUBS,POSITIONS,SKIN_TONES,HAIR_COLOURS,credits,careerLevel,careerXP,levelProgress,xpForLevel,owns,clubById,initCareer,clubProgress,itemById,itemValue,PLAYER_THEMES,KIT_TRIMS,pendingClubOffers} from './career.mjs?v=7.1.2';
-import {yearProgress,leagueTable} from './promotion.mjs?v=7.1.2';
-import {focusTables,tableEvidence} from './tables.mjs?v=7.1.2';
-import {goalsMarkup,factMapMarkup,penaltyArena} from './experience.mjs?v=7.1.2';
-import {matchMission,missionProgress} from './shot.mjs?v=7.1.2';
-import {britishVoices} from './speech.mjs?v=7.1.2';
-import {yearProfileMarkup} from './report-visuals.mjs?v=7.1.2';
-import {parentReport,KNOWLEDGE_LEVELS} from './parent-report.mjs?v=7.1.2';
-import {animatedItem,careerCard} from './celebrations.mjs?v=7.1.2';
-import {feedbackMarkup} from './feedback.mjs?v=7.1.2';
+import {SKILLS,skillById,profileSummary,localDay} from './engine.mjs?v=8.0.0';
+import {DOMAINS,syllabusIds,domainFor} from './curriculum.mjs?v=8.0.0';
+import {competency,planSummary,probeIds,progressCheckPlan,roundRecommendation} from './adaptive.mjs?v=8.0.0';
+import {esc,icon,mathText,diagram} from './visuals.mjs?v=8.0.0';
+import {avatarSVG,clubBadge} from './avatar.mjs?v=8.0.0';
+import {ITEMS,CLUBS,POSITIONS,SKIN_TONES,HAIR_COLOURS,credits,careerLevel,careerXP,levelProgress,xpForLevel,owns,clubById,initCareer,clubProgress,itemById,itemValue,PLAYER_THEMES,KIT_TRIMS,pendingClubOffers} from './career.mjs?v=8.0.0';
+import {yearProgress,leagueTable} from './promotion.mjs?v=8.0.0';
+import {focusTables,tableEvidence} from './tables.mjs?v=8.0.0';
+import {goalsMarkup,factMapMarkup,penaltyArena} from './experience.mjs?v=8.0.0';
+import {matchMission,missionProgress} from './shot.mjs?v=8.0.0';
+import {yearProfileMarkup} from './report-visuals.mjs?v=8.0.0';
+import {parentReport,KNOWLEDGE_LEVELS} from './parent-report.mjs?v=8.0.0';
+import {animatedItem,careerCard} from './celebrations.mjs?v=8.0.0';
+import {feedbackMarkup} from './feedback.mjs?v=8.0.0';
 
 const nav=(view,label,symbol='arrow',className='btn white')=>`<button class="${className}" data-action="nav" data-view="${view}">${icon(symbol,17)}${label}</button>`;
 const heading=(eyebrow,title,aside='')=>`<div class="heading academy-page-heading"><div><span class="eyebrow">${eyebrow}</span><h1>${title}</h1></div>${aside}</div>`;
@@ -46,13 +45,13 @@ export function pickerView(data,firstShot){
  if(!players.length)return `<div class="kickoff-screen">
   <section class="kickoff-welcome">
    <span class="field-label"><i class="live-dot" aria-hidden="true"></i> Football academy · Years 1–6</span>
-   <h1>Matchday <em>Maths</em></h1>
-   <p>Play football. Practise maths.</p>
+   <h1>Kick<em>Maths</em></h1>
+   <p>Train Your Brain. Win the Game.</p>
    <button class="btn lime big arcade-kickoff" data-action="new-player">${icon('play',22)} Create your player</button>
    <button class="text-btn kickoff-curriculum" data-action="browse">Explore the curriculum ${icon('arrow',15)}</button>
   </section>${firstShotView(firstShot)}
  </div>`;
- return `<div class="kickoff-screen"><section class="squad-select"><div class="section-head"><div><span class="eyebrow">Matchday squad</span><h1>Choose a player</h1></div><button class="btn lime" data-action="new-player">${icon('plus',18)} Add player</button></div>
+ return `<div class="kickoff-screen"><section class="squad-select"><div class="section-head"><div><span class="eyebrow">KickMaths squad</span><h1>Choose a player</h1></div><button class="btn lime" data-action="new-player">${icon('plus',18)} Add player</button></div>
  <div class="squad-cards">${players.map(p=>{
   initCareer(p);
   return `<button class="squad-player" data-action="choose-player" data-id="${p.id}" aria-label="Play as ${esc(p.name)}, Year ${p.year}"><div class="squad-info">${clubBadge(p)}<span>Year ${p.year} · Level ${careerLevel(p)}</span><h2>${esc(p.name)}</h2><small>${esc(p.look.position)} · No. ${p.look.number}</small><span class="squad-play">${icon('play',17)} Play</span></div>${avatarSVG(p,{size:146})}</button>`;
@@ -269,7 +268,7 @@ export function reportContent(p,formatQuestion=q=>q.expression||q.prompt,now=Dat
  const checked=report.current.length-report.counts.unseen;
  return `<article class="parent-report">
   <header class="parent-report-head">
-   <span class="eyebrow">Matchday Maths · Parent feedback</span>
+   <span class="eyebrow">KickMaths · Parent feedback</span>
    <h2 id="dialog-title">${esc(p.name)}’s learning report</h2>
    <p>Practice Year ${report.year} · ${reportDate.format(report.now)}</p>
    <div class="parent-report-stats"><span><b>${report.counts.secure}</b> secure</span><span><b>${checked}/${report.current.length}</b> skills checked</span><span><b>${progress.checked}/${progress.practical.length}</b> practical checks</span></div>
@@ -293,6 +292,6 @@ export function reportContent(p,formatQuestion=q=>q.expression||q.prompt,now=Dat
   <div class="dialog-actions"><button class="btn" data-action="close-dialog">Done</button></div>
  </article>`;
 }
-export function coachView(data,voices=[]){
- const british=britishVoices(voices);return `${heading('For grown-ups','Coach’s corner.')}<div class="coach-grid"><section class="panel"><div class="section-head"><h2>Your squad</h2><button class="text-btn" data-action="new-player">Add ${icon('plus',15)}</button></div>${data.profiles.length?data.profiles.map(p=>`<div class="profile-row"><span class="profile-dot">${p.look?.number||9}</span><div><strong>${esc(p.name)}</strong><small>Year ${p.year} · Level ${careerLevel(p)} · ${p.sessions.length} matches</small></div><button class="text-btn" data-action="report" data-id="${p.id}">Parent report</button><button class="text-btn" data-action="edit-player" data-id="${p.id}">Edit</button></div>`).join(''):'<p>Create a player to begin. No pupil names or scores are preloaded.</p>'}<div class="coach-note">Profiles and the squad league belong to this browser. Switching player keeps results separate. There are no passwords or online pupil accounts.</div></section><section class="panel"><h2>Reading and sound</h2><label class="setting-check"><input type="checkbox" id="dyslexia-setting" ${data.settings.dyslexia?'checked':''}> Dyslexia-friendly layout</label><label class="setting-check"><input type="checkbox" id="reduce-motion" ${data.settings.reduceMotion?'checked':''}> Reduce motion</label><label class="setting-check"><input type="checkbox" id="auto-read" ${data.settings.autoRead?'checked':''}> Read questions automatically</label><label class="voice-field" for="british-voice">British voice<select class="field" id="british-voice"><option value="">${british.length?'Choose automatically':'No en-GB voice available on this device'}</option>${british.map(v=>`<option value="${esc(v.voiceURI)}" ${data.settings.voiceURI===v.voiceURI?'selected':''}>${esc(v.name)}</option>`).join('')}</select></label><label class="voice-field" for="speech-rate">Speech pace<select id="speech-rate" class="field"><option value="0.75" ${data.settings.speechRate===.75?'selected':''}>Slower</option><option value="0.9" ${data.settings.speechRate===.9?'selected':''}>Steady</option><option value="1" ${data.settings.speechRate===1?'selected':''}>Normal</option></select></label><button class="text-btn" data-action="voice-test">${icon('sound',16)}Try the voice</button><p class="small-print">Voice availability and pronunciation depend on the browser and device. Reading support never reduces rewards.</p></section></div><section class="panel backup-panel"><div><h2>Keep a squad backup</h2><p>Clearing browser data removes local progress. Export a backup to move to another computer.</p></div><div class="data-buttons"><button class="btn white" data-action="backup">${icon('download',16)}Backup</button><button class="btn white" data-action="import">Restore</button><input type="file" id="import-file" accept=".json,application/json" hidden></div></section><section class="panel coach-rules"><h2>What drives practice and promotion?</h2><ol><li>A warm-up checks basic number facts and smaller written methods before harder year targets. Your first warm-up earns XP for independent answers, and completing your first game gives 10 starter credits. XP does not award mastery.</li><li>Coach balances weak prerequisites, a focus table, written methods, wider curriculum and due recall. Written mistakes lead to smaller methods. Two distinct independent successes build back up. Coach also checks supporting number skills.</li><li>Table families need separate multiplication and inverse-division evidence. At most three new table families enter a short match.</li><li>Match-fit evidence needs broad independent success on later days. Reviews use increasing intervals of 1, 3, 7, 14, 30 and 60 days.</li><li>Promotion requires the current year’s digital families, recorded practical checks and a successful promotion match. XP alone cannot promote a year.</li><li>Finish Coach matches or 3-shot Coach drills to bank XP for new or due independent answers. One credit is earned per 10 XP. Free practice keeps your learning history.</li></ol><p>Changing a practice year in Edit does not award completion of earlier years. The curriculum map is for England; it does not claim a single uniform UK curriculum or guarantee permanent retention.</p><div class="sources"><a href="../curriculum/">Full curriculum guide</a><a href="../accessibility/">Accessibility</a><a href="../privacy/">Privacy</a></div></section>`;
+export function coachView(data){
+ return `${heading('For grown-ups','Coach’s corner.')}<div class="coach-grid"><section class="panel"><div class="section-head"><h2>Your squad</h2><button class="text-btn" data-action="new-player">Add ${icon('plus',15)}</button></div>${data.profiles.length?data.profiles.map(p=>`<div class="profile-row"><span class="profile-dot">${p.look?.number||9}</span><div><strong>${esc(p.name)}</strong><small>Year ${p.year} · Level ${careerLevel(p)} · ${p.sessions.length} matches</small></div><button class="text-btn" data-action="report" data-id="${p.id}">Parent report</button><button class="text-btn" data-action="edit-player" data-id="${p.id}">Edit</button></div>`).join(''):'<p>Create a player to begin. No pupil names or scores are preloaded.</p>'}<div class="coach-note">Profiles and the squad league belong to this browser. Switching player keeps results separate. There are no passwords or online pupil accounts.</div></section><section class="panel"><h2>Dyslexia-friendly settings</h2><label class="setting-check"><input type="checkbox" id="dyslexia-setting" ${data.settings.dyslexia?'checked':''}> Dyslexia-friendly mode</label><p>A clearer font, wider text spacing and a softer reading background. Reading preferences do not change rewards or learning evidence.</p><label class="setting-check"><input type="checkbox" id="reduce-motion" ${data.settings.reduceMotion?'checked':''}> Reduce motion</label><p><a href="../dyslexia-friendly-maths/">About dyslexia-friendly maths</a></p></section></div><section class="panel backup-panel"><div><h2>Keep a squad backup</h2><p>Clearing browser data removes local progress. Export a backup to move to another computer.</p></div><div class="data-buttons"><button class="btn white" data-action="backup">${icon('download',16)}Backup</button><button class="btn white" data-action="import">Restore</button><input type="file" id="import-file" accept=".json,application/json" hidden></div></section><section class="panel coach-rules"><h2>What drives practice and promotion?</h2><ol><li>A warm-up checks basic number facts and smaller written methods before harder year targets. Your first warm-up earns XP for independent answers, and completing your first game gives 10 starter credits. XP does not award mastery.</li><li>Coach balances weak prerequisites, a focus table, written methods, wider curriculum and due recall. Written mistakes lead to smaller methods. Two distinct independent successes build back up. Coach also checks supporting number skills.</li><li>Table families need separate multiplication and inverse-division evidence. At most three new table families enter a short match.</li><li>Match-fit evidence needs broad independent success on later days. Reviews use increasing intervals of 1, 3, 7, 14, 30 and 60 days.</li><li>Promotion requires the current year’s digital families, recorded practical checks and a successful promotion match. XP alone cannot promote a year.</li><li>Finish Coach matches or 3-shot Coach drills to bank XP for new or due independent answers. One credit is earned per 10 XP. Free practice keeps your learning history.</li></ol><p>Changing a practice year in Edit does not award completion of earlier years. The curriculum map is for England; it does not claim a single uniform UK curriculum or guarantee permanent retention.</p><div class="sources"><a href="../curriculum/">Full curriculum guide</a><a href="../accessibility/">Accessibility</a><a href="../privacy/">Privacy</a></div></section>`;
 }
