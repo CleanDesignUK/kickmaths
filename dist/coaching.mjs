@@ -1,6 +1,6 @@
-import {columnSteps} from './engine.mjs?v=8.0.1';
-import {writtenTask,multiplicationWorking,divisionWorking} from './written-work.mjs?v=8.0.1';
-export {divisionWorking} from './written-work.mjs?v=8.0.1';
+import {columnSteps} from './engine.mjs?v=8.0.2';
+import {writtenTask,multiplicationWorking,divisionWorking} from './written-work.mjs?v=8.0.2';
+export {divisionWorking} from './written-work.mjs?v=8.0.2';
 
 // Numeric models keep every displayed jump and written step tied to the actual question.
 export function workedExample(q){

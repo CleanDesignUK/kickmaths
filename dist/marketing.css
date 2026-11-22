@@ -21,3 +21,9 @@ body.reading-mode{background:#fff4df;font-family:Arial,Verdana,sans-serif;letter
 .m-brand-crest{display:block;width:40px;height:54px;object-fit:contain;flex:none}
 .m-footer .m-brand-crest{width:56px;height:76px}
 @media(max-width:580px){.m-brand-crest{width:34px;height:46px}}
+
+.m-beta-banner{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding:16px 20px;margin:20px 0 0;border:1px solid #b5c988;border-radius:16px;background:#edf5dc;color:#153d2d;font-size:1rem;line-height:1.6}
+.m-beta-banner p{margin:0;color:inherit;font:inherit}
+.m-beta-banner strong{display:inline-block;margin-right:8px}
+.m-beta-banner a{color:#153d2d;font-weight:700;text-underline-offset:3px}
+@media(max-width:580px){.m-beta-banner{padding:16px;margin-top:16px;gap:8px}}

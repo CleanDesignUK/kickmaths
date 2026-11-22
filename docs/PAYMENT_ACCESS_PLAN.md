@@ -1,3 +1,11 @@
+# Payment work paused for the free beta
+
+22 November 2026: the owner has put paid access aside and requested a free beta launch. Do not implement checkout, activation codes or a payment gate as part of the beta. Remove public prices and say a paid version is coming soon. No future price or release date is currently published.
+
+Before pausing, a £5 one-off licence per activated device/browser, using a reusable Tide Instant Checkout link and unique codes, was discussed. Automatic Tide payment confirmation was not verified, and nothing was connected. That discussion replaced the earlier £2 annual pupil proposal. Revisit requirements with the owner when paid work resumes.
+
+The following is an archived earlier proposal, not the beta specification.
+
 # Proposed KickMaths payment and access flow
 
 Owner requirements: £2 per pupil per year for families and schools; a free playable demo; full player profiles behind paid access. The owner prefers a provider other than Stripe and currently uses a Tide business account. A checkout provider has not been selected or connected.
