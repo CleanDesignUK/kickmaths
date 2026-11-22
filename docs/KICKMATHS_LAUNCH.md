@@ -19,7 +19,7 @@ Complete source and original commit history imported into CleanDesignUK/kickmath
 
 ## Deployment and remaining configuration
 
-Publish KickMaths deploys dist/ to the repository's GitHub Pages root after syntax, build, tests and generated-file checks. Pages source must be GitHub Actions. Intended live repository URL: https://cleandesignuk.github.io/kickmaths/.
+GitHub Pages is enabled with GitHub Actions as its source. Publish KickMaths successfully deployed dist/ to https://cleandesignuk.github.io/kickmaths/. The live game at https://cleandesignuk.github.io/kickmaths/play/ reports version 8.0.0. PR #1 merged as 7d948d1746fd7ee320f93e8a2561d0135836ab80; verification run 45029705035 and publish run 45029705029 both succeeded.
 
 Custom domain: kickmaths.co.uk did not resolve during setup. Canonicals are prepared for that domain. Do not add a CNAME redirect until DNS is connected and verified.
 
@@ -36,4 +36,4 @@ The requested £2 price is published as pricing information. Payment checkout, p
 - Contact email and feedback button verified. The supplied Google link opens the form titled KickMaths Feedback. No form response was submitted.
 - Screenshots are in screenshots/kickmaths/.
 
-GitHub Pages activation is still required for this new repository. The code is concrete and committed; the connector cannot change that repository setting, and the browser currently requires GitHub sign-in. Domain DNS also remains unconfigured. Read the latest GitHub commit and Actions status before continuing after a disconnection.
+GitHub sign-in and device verification completed, and Pages was enabled through the repository settings. The published homepage and game have been checked in the browser. A 1200 × 630 JPEG social image is included for link previews. Domain DNS and paid checkout remain outstanding. Read the latest GitHub commit and Actions status before continuing after a disconnection.
