@@ -1,5 +1,5 @@
-import {questionPool,selectQuestion,factSecure,skillById} from './engine.mjs?v=8.0.3';
-import {TABLE_TARGETS} from './primary.mjs?v=8.0.3';
+import {questionPool,selectQuestion,factSecure,skillById} from './engine.mjs?v=8.0.4';
+import {TABLE_TARGETS} from './primary.mjs?v=8.0.4';
 
 export const focusTables=year=>TABLE_TARGETS[year]||TABLE_TARGETS[1];
 export function tableEvidence(profile,table,now=Date.now()){

@@ -9,7 +9,7 @@ import {icon,esc} from '../dist/visuals.mjs';
 
 const dist=fileURLToPath(new URL('../dist/',import.meta.url));
 const origin=(process.env.SITE_ORIGIN||'https://kickmaths.co.uk').replace(/\/$/,'');
-const version='8.0.3';
+const version='8.0.4';
 const email='enquiries@kickmaths.co.uk';
 const feedback='https://forms.gle/SYBiVhoeEzwWpkvu9';
 const shareImage='https://cleandesignuk.github.io/kickmaths/assets/kickmaths-share-00f8cc99ab2d.jpg';

@@ -1,6 +1,6 @@
 # Current KickMaths checkpoint
 
-Latest release source: KickMaths 8.0.3, consent-based private GA4 usage reports and the owner-supplied social sharing image. Read USAGE_REPORTS.md and FREE_BETA_LAUNCH.md. Publishing uses the existing GitHub Pages workflow after a verified PR merges; check the latest main SHA and Actions status before further changes.
+Latest release source: KickMaths 8.0.4, per-player 3-minute, 5-minute and unlimited timers. Analytics and the owner-supplied social sharing image remain in place. Read TIMER_OPTIONS.md. Read USAGE_REPORTS.md and FREE_BETA_LAUNCH.md. Publishing uses the existing GitHub Pages workflow after a verified PR merges; check the latest main SHA and Actions status before further changes.
 
 Website: https://cleandesignuk.github.io/kickmaths/
 Game: https://cleandesignuk.github.io/kickmaths/play/
@@ -17,6 +17,8 @@ Game: https://cleandesignuk.github.io/kickmaths/play/
 - The original primary-uk-maths repository is unchanged. Full game history is preserved in CleanDesignUK/kickmaths.
 - Before paid work was paused, £5 lifetime per activated device/browser with Tide was discussed. It was not built. PAYMENT_ACCESS_PLAN.md is archived context, not the current launch requirements.
 
-- Latest release checks: all 163 tests, syntax, marketing generation, Worker packaging and public local-link checks pass. Follow-up live browser QA verified consent-gated SDK loading and Tag Assistant detection/outgoing page/demo/player events. No runtime changes were needed for this follow-up. Do not claim private GA4 receipt, a verified custom Exploration or actual player totals.
+- Timer release checks: all 170 tests, syntax, marketing generation and Worker packaging pass. Browser QA covered the existing-player dashboard, profile editing and creation controls, 5-minute and 3-minute countdowns, Unlimited reload/resume, retained saved answers, and selection at 320px. Follow-up live browser QA verified consent-gated SDK loading and Tag Assistant detection/outgoing page/demo/player events. No runtime changes were needed for this follow-up. Do not claim private GA4 receipt, a verified custom Exploration or actual player totals.
 
 Keep changes in focused commits. Run appropriate tests and builds, inspect the affected desktop and phone layouts, and merge through checked PRs before reporting an update live.
+
+- Match timer choices are 180, 300 and 0 seconds (Unlimited). New players default to 3 minutes. Missing legacy settings and 60/120 seconds migrate to 180 on load/backup import; existing 180, 300 and 0 choices are retained. Choose Match timer beneath the dashboard player card or in Parents > Edit. A change also updates that player’s saved draft while retaining active time already spent. Completed history and other players are unchanged. Warm-ups, progress checks and Coach drills remain untimed. Do not reintroduce hidden mode-specific 1-, 7- or 10-minute overrides.

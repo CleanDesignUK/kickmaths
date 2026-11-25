@@ -1,6 +1,6 @@
 export const MEASUREMENT_ID='G-5226JP5Y9R';
 export const PRIVACY_KEY='kickmaths.cookies.v2';
-export const USAGE_VERSION='8.0.3';
+export const USAGE_VERSION='8.0.4';
 const denied={analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',personalization_storage:'denied'};
 const events=new Set(['game_open','game_start','game_resume','game_complete','game_save','player_active','demo_answer']);
 const types=new Set(['warmup','coach','practice','tables','written','promotion','progress_check','coach_drill']);

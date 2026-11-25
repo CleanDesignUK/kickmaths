@@ -1,5 +1,5 @@
-import {esc} from './visuals.mjs?v=8.0.3';
-import {initCareer,itemById,itemValue,SKIN_TONES,HAIR_COLOURS,KIT_TRIMS,clubById} from './career.mjs?v=8.0.3';
+import {esc} from './visuals.mjs?v=8.0.4';
+import {initCareer,itemById,itemValue,SKIN_TONES,HAIR_COLOURS,KIT_TRIMS,clubById} from './career.mjs?v=8.0.4';
 
 export function avatarSVG(profile,{size=200,pose='stand',preview=null}={}){
  const p=profile?{...profile,look:{...(profile.look||{})}}:{look:{}};initCareer(p);if(preview){const item=itemById(preview);if(item)p.look[item.slot]=itemValue(item);}
