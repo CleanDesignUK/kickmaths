@@ -20,3 +20,7 @@ Unlimited is stored as a finite duration of 0. Clock helpers return Infinity onl
 - No game-source JavaScript error was observed in the browser. The browser extension emitted its own metadata errors.
 
 Evidence: [desktop dashboard](screenshots/timer-options/desktop.jpg) and [320px timer control](screenshots/timer-options/phone-320.jpg).
+
+## Production publication
+
+PR #7 merged as a587bf32bcf65f04f8a6f48fb739f09b7945f190. GitHub Verify KickMaths and Publish KickMaths both succeeded. The production /play/ document, versioned app module and training-timer module returned HTTP 200 with the expected 8.0.4 code. In the live browser, /play/?v=8.0.4 exposed the three choices in Build your player. An existing cached document initially showed 8.0.3, so reload an already-open game or use that fresh entry URL. The full gameplay and existing-profile flow was tested on the managed preview as recorded above.

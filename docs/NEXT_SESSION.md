@@ -13,7 +13,7 @@ Game: https://cleandesignuk.github.io/kickmaths/play/
 - Contact: enquiries@kickmaths.co.uk. Feedback: https://forms.gle/SYBiVhoeEzwWpkvu9.
 - The approved crests, 16px/18px website copy, accessible navigation, no website button arrows and explicitly labelled dyslexia-friendly mode remain. Game audio is removed.
 - Pages activation is complete; do not ask the owner to enable it again.
-- Production verified: https://kickmaths.co.uk/ and /play/ both return HTTP 200 and serve version 8.0.3. GitHub Pages URLs now redirect to the custom domain. Do not undo this connected domain setup. The live usage module has the supplied measurement ID, and the live sharing-image bytes match the uploaded graphic. This is HTTP/source verification, not observed GA4 event receipt.
+- Production timer release verified: /play/ returns HTTP 200 and serves version 8.0.4. The production app and new training-timer module also return 200. The live new-player form exposes 3 minutes, 5 minutes and Unlimited. GitHub Pages URLs now redirect to the custom domain. Do not undo this connected domain setup. The live usage module has the supplied measurement ID, and the live sharing-image bytes match the uploaded graphic. This is HTTP/source verification, not observed GA4 event receipt.
 - The original primary-uk-maths repository is unchanged. Full game history is preserved in CleanDesignUK/kickmaths.
 - Before paid work was paused, £5 lifetime per activated device/browser with Tide was discussed. It was not built. PAYMENT_ACCESS_PLAN.md is archived context, not the current launch requirements.
 
@@ -22,3 +22,5 @@ Game: https://cleandesignuk.github.io/kickmaths/play/
 Keep changes in focused commits. Run appropriate tests and builds, inspect the affected desktop and phone layouts, and merge through checked PRs before reporting an update live.
 
 - Match timer choices are 180, 300 and 0 seconds (Unlimited). New players default to 3 minutes. Missing legacy settings and 60/120 seconds migrate to 180 on load/backup import; existing 180, 300 and 0 choices are retained. Choose Match timer beneath the dashboard player card or in Parents > Edit. A change also updates that player’s saved draft while retaining active time already spent. Completed history and other players are unchanged. Warm-ups, progress checks and Coach drills remain untimed. Do not reintroduce hidden mode-specific 1-, 7- or 10-minute overrides.
+
+- Published 8.0.4 from merge a587bf32bcf65f04f8a6f48fb739f09b7945f190 (PR #7); Verify KickMaths and Publish KickMaths both succeeded. A browser with cached HTML initially showed 8.0.3; the verified fresh entry https://kickmaths.co.uk/play/?v=8.0.4 loads 8.0.4. Refresh an already-open tab when checking the new options.
