@@ -1,4 +1,4 @@
-import {shotType,superMove} from './avatar.mjs?v=8.0.3';
+import {shotType,superMove} from './avatar.mjs?v=8.0.4';
 
 export const AIM_ZONES=['left','centre','right'];
 const missions=[

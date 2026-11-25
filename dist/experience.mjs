@@ -1,10 +1,10 @@
-import {multiplicationSolution,divisionSolution} from './written-work.mjs?v=8.0.3';
-import {columnWorked} from './column-method.mjs?v=8.0.3';
-import {avatarSVG} from './avatar.mjs?v=8.0.3';
-import {itemById} from './career.mjs?v=8.0.3';
-import {esc,icon,mathText} from './visuals.mjs?v=8.0.3';
-import {dailyTargets,academyPath,tableChoices,tableFacts} from './progression.mjs?v=8.0.3';
-import {workedExample} from './coaching.mjs?v=8.0.3';
+import {multiplicationSolution,divisionSolution} from './written-work.mjs?v=8.0.4';
+import {columnWorked} from './column-method.mjs?v=8.0.4';
+import {avatarSVG} from './avatar.mjs?v=8.0.4';
+import {itemById} from './career.mjs?v=8.0.4';
+import {esc,icon,mathText} from './visuals.mjs?v=8.0.4';
+import {dailyTargets,academyPath,tableChoices,tableFacts} from './progression.mjs?v=8.0.4';
+import {workedExample} from './coaching.mjs?v=8.0.4';
 
 export function goalsMarkup(profile,compact=false){
  const targets=dailyTargets(profile),done=targets.filter(t=>t.done).length;

@@ -1,4 +1,4 @@
-import {initUsage,privacyChoice,setPrivacyChoice} from './usage.mjs?v=8.0.3';
+import {initUsage,privacyChoice,setPrivacyChoice} from './usage.mjs?v=8.0.4';
 document.body.classList.add('site-interactive');
 const readingKey='kickmaths.reading';
 const banner=document.querySelector('[data-cookie-banner]');
